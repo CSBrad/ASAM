@@ -1,5 +1,5 @@
 # ASAM
-Brads Digital Server Manager For ASA V0.0.03
+Brads Digital Server Manager For ASA V0.0.1.04
 
 
 ASAM Installation Guide:
