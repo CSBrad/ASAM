@@ -1,0 +1,1253 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DSharpPlus.Interactivity</name>
+    </assembly>
+    <members>
+        <member name="T:DSharpPlus.Interactivity.Enums.ButtonPaginationBehavior">
+            <summary>
+            Represents options of how to handle pagination timing out.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.ButtonPaginationBehavior.Disable">
+            <summary>
+            The buttons should be disabled when pagination times out.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.ButtonPaginationBehavior.Ignore">
+            <summary>
+            The buttons should be left as is when pagination times out.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.ButtonPaginationBehavior.DeleteMessage">
+            <summary>
+            The entire message should be deleted when pagination times out.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.ButtonPaginationBehavior.DeleteButtons">
+            <summary>
+            The buttons should be removed entirely when pagination times out.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.InteractionResponseBehavior.Ignore">
+            <summary>
+            Indicates that invalid input should be ignored when waiting for interactions. This will cause the interaction to fail.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.InteractionResponseBehavior.Ack">
+            <summary>
+            Indicates that invalid input should be ACK'd. The interaction will succeed, but nothing will happen.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.InteractionResponseBehavior.Respond">
+            <summary>
+            Indicates that invalid input should warrant an ephemeral error message.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.Enums.PaginationBehaviour">
+            <summary>
+            Specifies how pagination will handle advancing past the first and last pages.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.PaginationBehaviour.WrapAround">
+            <summary>
+            Going forward beyond the last page will loop back to the first page.
+            Likewise, going back from the first page will loop around to the last page.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.PaginationBehaviour.Ignore">
+            <summary>
+            Attempting to go beyond the first or last page will be ignored.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.Enums.PaginationDeletion">
+            <summary>
+            Specifies what should be done once pagination times out.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.PaginationDeletion.DeleteEmojis">
+            <summary>
+            Reaction emojis will be deleted on timeout.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.PaginationDeletion.KeepEmojis">
+            <summary>
+            Reaction emojis will not be deleted on timeout.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.PaginationDeletion.DeleteMessage">
+            <summary>
+            The message will be completely deleted on timeout.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.Enums.PollBehaviour">
+            <summary>
+            Specifies what should be done when a poll times out.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.PollBehaviour.KeepEmojis">
+            <summary>
+            Reaction emojis will not be deleted.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.PollBehaviour.DeleteEmojis">
+            <summary>
+            Reaction emojis will be deleted.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.Enums.SplitType">
+            <summary>
+            Specifies how to split a string.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.SplitType.Character">
+            <summary>
+            Splits string per 500 characters.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.Interactivity.Enums.SplitType.Line">
+            <summary>
+            Splits string per 15 lines.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.EventHandling.ComponentEventWaiter">
+            <summary>
+            A component-based version of <see cref="T:DSharpPlus.Interactivity.EventHandling.EventWaiter`1"/>
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.ComponentEventWaiter.WaitForMatchAsync(DSharpPlus.Interactivity.EventHandling.ComponentMatchRequest)">
+            <summary>
+            Waits for a specified <see cref="T:DSharpPlus.Interactivity.EventHandling.ComponentMatchRequest"/>'s predicate to be fulfilled.
+            </summary>
+            <param name="request">The request to wait for.</param>
+            <returns>The returned args, or null if it timed out.</returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.ComponentEventWaiter.CollectMatchesAsync(DSharpPlus.Interactivity.EventHandling.ComponentCollectRequest)">
+            <summary>
+            Collects reactions and returns the result when the <see cref="T:DSharpPlus.Interactivity.EventHandling.ComponentMatchRequest"/>'s cancellation token is canceled.
+            </summary>
+            <param name="request">The request to wait on.</param>
+            <returns>The result from request's predicate over the period of time leading up to the token's cancellation.</returns>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.EventHandling.ComponentCollectRequest">
+            <summary>
+            Represents a component event that is being waited for.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.EventHandling.ComponentMatchRequest">
+            <summary>
+            Represents a match that is being waited for.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.EventHandling.ComponentMatchRequest.Message">
+            <summary>
+            The id to wait on. This should be uniquely formatted to avoid collisions.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.EventHandling.ComponentMatchRequest.Tcs">
+            <summary>
+            The completion source that represents the result of the match.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.EventHandling.EventWaiter`1">
+            <summary>
+            Eventwaiter is a class that serves as a layer between the InteractivityExtension
+            and the DiscordClient to listen to an event and check for matches to a predicate.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.EventWaiter`1.#ctor(DSharpPlus.DiscordClient)">
+            <summary>
+            Creates a new Eventwaiter object.
+            </summary>
+            <param name="client">Your DiscordClient</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.EventWaiter`1.WaitForMatch(DSharpPlus.Interactivity.EventHandling.MatchRequest{`0})">
+            <summary>
+            Waits for a match to a specific request, else returns null.
+            </summary>
+            <param name="request">Request to match</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.EventWaiter`1.Dispose">
+            <summary>
+            Disposes this EventWaiter
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginator.DoPaginationAsync(DSharpPlus.Interactivity.EventHandling.IPaginationRequest)">
+            <summary>
+            Paginates.
+            </summary>
+            <param name="request">The request to paginate.</param>
+            <returns>A task that completes when the pagination finishes or times out.</returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginator.Dispose">
+            <summary>
+            Disposes this EventWaiter
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.EventHandling.ModalEventWaiter">
+            <summary>
+            Modal version of <see cref="T:DSharpPlus.Interactivity.EventHandling.EventWaiter`1"/>
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.EventHandling.ModalEventWaiter.MatchRequests">
+            <summary>
+            Collection of <see cref = "T:DSharpPlus.Interactivity.EventHandling.ModalMatchRequest"/> representing requests to wait for modals.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.ModalEventWaiter.WaitForMatchAsync(DSharpPlus.Interactivity.EventHandling.ModalMatchRequest)">
+            <summary>
+            Waits for a specified <see cref="T:DSharpPlus.Interactivity.EventHandling.ModalMatchRequest"/>'s predicate to be fulfilled.
+            </summary>
+            <param name="request">The request to wait for a match.</param>
+            <returns>The returned args, or null if it timed out.</returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.ModalEventWaiter.Handle(DSharpPlus.DiscordClient,DSharpPlus.EventArgs.ModalSubmitEventArgs)">
+            <summary>
+            Is called whenever <see cref="T:DSharpPlus.EventArgs.ModalSubmitEventArgs"/> is fired. Checks to see submitted modal matches any of the current requests.
+            </summary>
+            <param name="_"></param>
+            <param name="args">The <see cref="T:DSharpPlus.EventArgs.ModalSubmitEventArgs"/> to match.</param>
+            <returns>A task that represents matching the requests.</returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.Paginator.#ctor(DSharpPlus.DiscordClient)">
+            <summary>
+            Creates a new Eventwaiter object.
+            </summary>
+            <param name="client">Your DiscordClient</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.Paginator.Dispose">
+            <summary>
+            Disposes this EventWaiter
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.Poller.#ctor(DSharpPlus.DiscordClient)">
+            <summary>
+            Creates a new Eventwaiter object.
+            </summary>
+            <param name="client">Your DiscordClient</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.Poller.Dispose">
+            <summary>
+            Disposes this EventWaiter
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.EventHandling.ReactionCollector">
+            <summary>
+            Eventwaiter is a class that serves as a layer between the InteractivityExtension
+            and the DiscordClient to listen to an event and check for matches to a predicate.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.ReactionCollector.#ctor(DSharpPlus.DiscordClient)">
+            <summary>
+            Creates a new Eventwaiter object.
+            </summary>
+            <param name="client">Your DiscordClient</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.ReactionCollector.Dispose">
+            <summary>
+            Disposes this EventWaiter
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.EventHandling.CollectRequest`1">
+            <summary>
+            CollectRequest is a class that serves as a representation of
+            EventArgs that are being collected within a specific time frame.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.CollectRequest`1.#ctor(System.Func{`0,System.Boolean},System.TimeSpan)">
+            <summary>
+            Creates a new CollectRequest object.
+            </summary>
+            <param name="predicate">Predicate to match</param>
+            <param name="timeout">Timeout time</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.CollectRequest`1.Dispose">
+            <summary>
+            Disposes this CollectRequest.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.PageCount">
+            <summary>
+            Returns the number of pages.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.GetPageAsync">
+            <summary>
+            Returns the current page.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.SkipLeftAsync">
+            <summary>
+            Tells the request to set its index to the first page.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.SkipRightAsync">
+            <summary>
+            Tells the request to set its index to the last page.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.NextPageAsync">
+            <summary>
+            Tells the request to increase its index by one.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.PreviousPageAsync">
+            <summary>
+            Tells the request to decrease its index by one.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.GetEmojisAsync">
+            <summary>
+            Requests message emojis from pagination request.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.GetButtonsAsync">
+            <summary>
+            Requests the message buttons from the pagination request.
+            </summary>
+            <returns>The buttons.</returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.GetMessageAsync">
+            <summary>
+            Gets pagination message from this request.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.GetUserAsync">
+            <summary>
+            Gets the user this pagination applies to.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.GetTaskCompletionSourceAsync">
+            <summary>
+            Get this request's Task Completion Source.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.DoCleanupAsync">
+            <summary>
+            Tells the request to perform cleanup.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.EventHandling.MatchRequest`1">
+            <summary>
+            MatchRequest is a class that serves as a representation of a
+            match that is being waited for.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.MatchRequest`1.#ctor(System.Func{`0,System.Boolean},System.TimeSpan)">
+            <summary>
+            Creates a new MatchRequest object.
+            </summary>
+            <param name="predicate">Predicate to match</param>
+            <param name="timeout">Timeout time</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.MatchRequest`1.Dispose">
+            <summary>
+            Disposes this MatchRequest.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.EventHandling.ModalMatchRequest">
+            <summary>
+            Represents a match request for a modal of the given Id and predicate.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.EventHandling.ModalMatchRequest.ModalId">
+            <summary>
+            The custom Id of the modal.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.EventHandling.ModalMatchRequest.Tcs">
+            <summary>
+            The completion source that represents the result of the match.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.EventHandling.ModalMatchRequest.Predicate">
+            <summary>
+            The predicate/criteria that this match will be fulfilled under.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.ModalMatchRequest.IsMatch(DSharpPlus.EventArgs.ModalSubmitEventArgs)">
+            <summary>
+            Checks whether the <see cref="T:DSharpPlus.EventArgs.ModalSubmitEventArgs"/> matches the predicate criteria.
+            </summary>
+            <param name="args">The <see cref="T:DSharpPlus.EventArgs.ModalSubmitEventArgs"/> to check.</param>
+            <returns>Whether the <see cref="T:DSharpPlus.EventArgs.ModalSubmitEventArgs"/> matches the predicate.</returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.PaginationRequest.#ctor(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,DSharpPlus.Interactivity.Enums.PaginationBehaviour,DSharpPlus.Interactivity.Enums.PaginationDeletion,DSharpPlus.Interactivity.PaginationEmojis,System.TimeSpan,DSharpPlus.Interactivity.Page[])">
+            <summary>
+            Creates a new Pagination request
+            </summary>
+            <param name="message">Message to paginate</param>
+            <param name="user">User to allow control for</param>
+            <param name="behaviour">Behaviour during pagination</param>
+            <param name="deletion">Behavior on pagination end</param>
+            <param name="emojis">Emojis for this pagination object</param>
+            <param name="timeout">Timeout time</param>
+            <param name="pages">Pagination pages</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.PaginationRequest.Dispose">
+            <summary>
+            Disposes this PaginationRequest.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.PollRequest.#ctor(DSharpPlus.Entities.DiscordMessage,System.TimeSpan,System.Collections.Generic.IEnumerable{DSharpPlus.Entities.DiscordEmoji})">
+             <summary>
+            
+             </summary>
+             <param name="message"></param>
+             <param name="timeout"></param>
+             <param name="emojis"></param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.EventHandling.PollRequest.Dispose">
+            <summary>
+            Disposes this PollRequest.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.Extensions.ChannelExtensions">
+            <summary>
+            Interactivity extension methods for <see cref="T:DSharpPlus.Entities.DiscordChannel"/>.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.ChannelExtensions.GetNextMessageAsync(DSharpPlus.Entities.DiscordChannel,System.Func{DSharpPlus.Entities.DiscordMessage,System.Boolean},System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for the next message sent in this channel that satisfies the predicate.
+            </summary>
+            <param name="channel">The channel to monitor.</param>
+            <param name="predicate">A predicate that should return <see langword="true"/> if a message matches.</param>
+            <param name="timeoutOverride">Overrides the timeout set in <see cref="P:DSharpPlus.Interactivity.InteractivityConfiguration.Timeout"/></param>
+            <exception cref="T:System.InvalidOperationException">Thrown if interactivity is not enabled for the client associated with the channel.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.ChannelExtensions.GetNextMessageAsync(DSharpPlus.Entities.DiscordChannel,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for the next message sent in this channel.
+            </summary>
+            <param name="channel">The channel to monitor.</param>
+            <param name="timeoutOverride">Overrides the timeout set in <see cref="P:DSharpPlus.Interactivity.InteractivityConfiguration.Timeout"/></param>
+            <exception cref="T:System.InvalidOperationException">Thrown if interactivity is not enabled for the client associated with the channel.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.ChannelExtensions.GetNextMessageAsync(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for the next message sent in this channel from a specific user.
+            </summary>
+            <param name="channel">The channel to monitor.</param>
+            <param name="user">The target user.</param>
+            <param name="timeoutOverride">Overrides the timeout set in <see cref="P:DSharpPlus.Interactivity.InteractivityConfiguration.Timeout"/></param>
+            <exception cref="T:System.InvalidOperationException">Thrown if interactivity is not enabled for the client associated with the channel.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.ChannelExtensions.WaitForUserTypingAsync(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a specific user to start typing in this channel.
+            </summary>
+            <param name="channel">The target channel.</param>
+            <param name="user">The target user.</param>
+            <param name="timeoutOverride">Overrides the timeout set in <see cref="P:DSharpPlus.Interactivity.InteractivityConfiguration.Timeout"/></param>
+            <exception cref="T:System.InvalidOperationException">Thrown if interactivity is not enabled for the client associated with the channel.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.ChannelExtensions.SendPaginatedMessageAsync(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},DSharpPlus.Interactivity.PaginationEmojis,System.Nullable{DSharpPlus.Interactivity.Enums.PaginationBehaviour},System.Nullable{DSharpPlus.Interactivity.Enums.PaginationDeletion},System.Nullable{System.TimeSpan})">
+            <summary>
+            Sends a new paginated message.
+            </summary>
+            <param name="channel">Target channel.</param>
+            <param name="user">The user that'll be able to control the pages.</param>
+            <param name="pages">A collection of <see cref="T:DSharpPlus.Interactivity.Page"/> to display.</param>
+            <param name="emojis">Pagination emojis.</param>
+            <param name="behaviour">Pagination behaviour (when hitting max and min indices).</param>
+            <param name="deletion">Deletion behaviour.</param>
+            <param name="timeoutoverride">Override timeout period.</param>
+            <exception cref="T:System.InvalidOperationException">Thrown if interactivity is not enabled for the client associated with the channel.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.ChannelExtensions.SendPaginatedMessageAsync(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},DSharpPlus.Interactivity.EventHandling.PaginationButtons,System.Nullable{DSharpPlus.Interactivity.Enums.PaginationBehaviour},System.Nullable{DSharpPlus.Interactivity.Enums.ButtonPaginationBehavior},System.Threading.CancellationToken)">
+            <summary>
+            Sends a new paginated message with buttons.
+            </summary>
+            <param name="channel">Target channel.</param>
+            <param name="user">The user that'll be able to control the pages.</param>
+            <param name="pages">A collection of <see cref="T:DSharpPlus.Interactivity.Page"/> to display.</param>
+            <param name="buttons">Pagination buttons (leave null to default to ones on configuration).</param>
+            <param name="behaviour">Pagination behaviour.</param>
+            <param name="deletion">Deletion behaviour</param>
+            <param name="token">A custom cancellation token that can be cancelled at any point.</param>
+            <exception cref="T:System.InvalidOperationException">Thrown if interactivity is not enabled for the client associated with the channel.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.ChannelExtensions.SendPaginatedMessageAsync(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},System.Nullable{DSharpPlus.Interactivity.Enums.PaginationBehaviour},System.Nullable{DSharpPlus.Interactivity.Enums.ButtonPaginationBehavior},System.Threading.CancellationToken)">
+            <inheritdoc cref="M:DSharpPlus.Interactivity.Extensions.ChannelExtensions.SendPaginatedMessageAsync(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},DSharpPlus.Interactivity.EventHandling.PaginationButtons,System.Nullable{DSharpPlus.Interactivity.Enums.PaginationBehaviour},System.Nullable{DSharpPlus.Interactivity.Enums.ButtonPaginationBehavior},System.Threading.CancellationToken)"/>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.ChannelExtensions.SendPaginatedMessageAsync(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},DSharpPlus.Interactivity.EventHandling.PaginationButtons,System.Nullable{System.TimeSpan},System.Nullable{DSharpPlus.Interactivity.Enums.PaginationBehaviour},System.Nullable{DSharpPlus.Interactivity.Enums.ButtonPaginationBehavior})">
+            <summary>
+            Sends a new paginated message with buttons.
+            </summary>
+            <param name="channel">Target channel.</param>
+            <param name="user">The user that'll be able to control the pages.</param>
+            <param name="pages">A collection of <see cref="T:DSharpPlus.Interactivity.Page"/> to display.</param>
+            <param name="buttons">Pagination buttons (leave null to default to ones on configuration).</param>
+            <param name="behaviour">Pagination behaviour.</param>
+            <param name="deletion">Deletion behaviour</param>
+            <param name="timeoutoverride">Override timeout period.</param>
+            <exception cref="T:System.InvalidOperationException">Thrown if interactivity is not enabled for the client associated with the channel.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.ChannelExtensions.SendPaginatedMessageAsync(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},System.Nullable{System.TimeSpan},System.Nullable{DSharpPlus.Interactivity.Enums.PaginationBehaviour},System.Nullable{DSharpPlus.Interactivity.Enums.ButtonPaginationBehavior})">
+            <inheritdoc cref="M:DSharpPlus.Interactivity.Extensions.ChannelExtensions.SendPaginatedMessageAsync(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},DSharpPlus.Interactivity.EventHandling.PaginationButtons,System.Nullable{System.TimeSpan},System.Nullable{DSharpPlus.Interactivity.Enums.PaginationBehaviour},System.Nullable{DSharpPlus.Interactivity.Enums.ButtonPaginationBehavior})"/>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.ChannelExtensions.GetInteractivity(DSharpPlus.Entities.DiscordChannel)">
+            <summary>
+            Retrieves an interactivity instance from a channel instance.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.Extensions.ClientExtensions">
+            <summary>
+            Interactivity extension methods for <see cref="T:DSharpPlus.DiscordClient"/> and <see cref="T:DSharpPlus.DiscordShardedClient"/>.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.ClientExtensions.UseInteractivity(DSharpPlus.DiscordClient,DSharpPlus.Interactivity.InteractivityConfiguration)">
+            <summary>
+            Enables interactivity for this <see cref="T:DSharpPlus.DiscordClient"/> instance.
+            </summary>
+            <param name="client">The client to enable interactivity for.</param>
+            <param name="configuration">A configuration instance. Default configuration values will be used if none is provided.</param>
+            <returns>A brand new <see cref="T:DSharpPlus.Interactivity.InteractivityExtension"/> instance.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if interactivity has already been enabled for the client instance.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.ClientExtensions.UseInteractivityAsync(DSharpPlus.DiscordShardedClient,DSharpPlus.Interactivity.InteractivityConfiguration)">
+            <summary>
+            Enables interactivity for each shard.
+            </summary>
+            <param name="client">The shard client to enable interactivity for.</param>
+            <param name="configuration">Configuration to use for all shards. If one isn't provided, default configuration values will be used.</param>
+            <returns>A dictionary containing new <see cref="T:DSharpPlus.Interactivity.InteractivityExtension"/> instances for each shard.</returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.ClientExtensions.GetInteractivity(DSharpPlus.DiscordClient)">
+            <summary>
+            Retrieves the registered <see cref="T:DSharpPlus.Interactivity.InteractivityExtension"/> instance for this client.
+            </summary>
+            <param name="client">The client to retrieve an <see cref="T:DSharpPlus.Interactivity.InteractivityExtension"/> instance from.</param>
+            <returns>An existing <see cref="T:DSharpPlus.Interactivity.InteractivityExtension"/> instance, or <see langword="null"/> if interactivity is not enabled for the <see cref="T:DSharpPlus.DiscordClient"/> instance.</returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.ClientExtensions.GetInteractivityAsync(DSharpPlus.DiscordShardedClient)">
+            <summary>
+            Retrieves a <see cref="T:DSharpPlus.Interactivity.InteractivityExtension"/> instance for each shard.
+            </summary>
+            <param name="client">The shard client to retrieve interactivity instances from.</param>
+            <returns>A dictionary containing <see cref="T:DSharpPlus.Interactivity.InteractivityExtension"/> instances for each shard.</returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.InteractionExtensions.SendPaginatedResponseAsync(DSharpPlus.Entities.DiscordInteraction,System.Boolean,DSharpPlus.Entities.DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},DSharpPlus.Interactivity.EventHandling.PaginationButtons,System.Nullable{DSharpPlus.Interactivity.Enums.PaginationBehaviour},System.Nullable{DSharpPlus.Interactivity.Enums.ButtonPaginationBehavior},System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Sends a paginated message in response to an interaction.
+            <para>
+            <b>Pass the interaction directly. Interactivity will ACK it.</b>
+            </para>
+            </summary>
+            <param name="interaction">The interaction to create a response to.</param>
+            <param name="ephemeral">Whether the response should be ephemeral.</param>
+            <param name="user">The user to listen for button presses from.</param>
+            <param name="pages">The pages to paginate.</param>
+            <param name="buttons">Optional: custom buttons</param>
+            <param name="behaviour">Pagination behaviour.</param>
+            <param name="deletion">Deletion behaviour</param>
+            <param name="token">A custom cancellation token that can be cancelled at any point.</param>
+            <param name="asEditResponse">If the response as edit of previous response.</param>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.Extensions.MessageExtensions">
+            <summary>
+            Interactivity extension methods for <see cref="T:DSharpPlus.Entities.DiscordMessage"/>.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.GetNextMessageAsync(DSharpPlus.Entities.DiscordMessage,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for the next message that has the same author and channel as this message.
+            </summary>
+            <param name="message">Original message.</param>
+            <param name="timeoutOverride">Overrides the timeout set in <see cref="P:DSharpPlus.Interactivity.InteractivityConfiguration.Timeout"/></param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.GetNextMessageAsync(DSharpPlus.Entities.DiscordMessage,System.Func{DSharpPlus.Entities.DiscordMessage,System.Boolean},System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for the next message with the same author and channel as this message, which also satisfies a predicate.
+            </summary>
+            <param name="message">Original message.</param>
+            <param name="predicate">A predicate that should return <see langword="true"/> if a message matches.</param>
+            <param name="timeoutOverride">Overrides the timeout set in <see cref="P:DSharpPlus.Interactivity.InteractivityConfiguration.Timeout"/></param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.WaitForButtonAsync(DSharpPlus.Entities.DiscordMessage)">
+            <summary>
+            Waits for any button to be pressed on the specified message.
+            </summary>
+            <param name="message">The message to wait on.</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.WaitForButtonAsync(DSharpPlus.Entities.DiscordMessage,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for any button to be pressed on the specified message.
+            </summary>
+            <param name="message">The message to wait on.</param>
+            <param name="timeoutOverride">Overrides the timeout set in <see cref="P:DSharpPlus.Interactivity.InteractivityConfiguration.Timeout"/></param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.WaitForButtonAsync(DSharpPlus.Entities.DiscordMessage,System.Threading.CancellationToken)">
+            <summary>
+            Waits for any button to be pressed on the specified message.
+            </summary>
+            <param name="message">The message to wait on.</param>
+            <param name="token">A custom cancellation token that can be cancelled at any point.</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.WaitForButtonAsync(DSharpPlus.Entities.DiscordMessage,System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a button with the specified Id to be pressed on the specified message.
+            </summary>
+            <param name="message">The message to wait on.</param>
+            <param name="id">The Id of the button to wait for.</param>
+            <param name="timeoutOverride">Overrides the timeout set in <see cref="P:DSharpPlus.Interactivity.InteractivityConfiguration.Timeout"/></param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.WaitForButtonAsync(DSharpPlus.Entities.DiscordMessage,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Waits for a button with the specified Id to be pressed on the specified message.
+            </summary>
+            <param name="message">The message to wait on.</param>
+            <param name="id">The Id of the button to wait for.</param>
+            <param name="token">A custom cancellation token that can be cancelled at any point.</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.WaitForButtonAsync(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for any button to be pressed on the specified message by the specified user.
+            </summary>
+            <param name="message">The message to wait on.</param>
+            <param name="user">The user to wait for button input from.</param>
+            <param name="timeoutOverride">Overrides the timeout set in <see cref="P:DSharpPlus.Interactivity.InteractivityConfiguration.Timeout"/></param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.WaitForButtonAsync(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,System.Threading.CancellationToken)">
+            <summary>
+            Waits for any button to be pressed on the specified message by the specified user.
+            </summary>
+            <param name="message">The message to wait on.</param>
+            <param name="user">The user to wait for button input from.</param>
+            <param name="token">A custom cancellation token that can be cancelled at any point.</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.WaitForButtonAsync(DSharpPlus.Entities.DiscordMessage,System.Func{DSharpPlus.EventArgs.ComponentInteractionCreateEventArgs,System.Boolean},System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for any button to be interacted with.
+            </summary>
+            <param name="message">The message to wait on.</param>
+            <param name="predicate">The predicate to filter interactions by.</param>
+            <param name="timeoutOverride">Override the timeout specified in <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/></param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.WaitForButtonAsync(DSharpPlus.Entities.DiscordMessage,System.Func{DSharpPlus.EventArgs.ComponentInteractionCreateEventArgs,System.Boolean},System.Threading.CancellationToken)">
+            <summary>
+            Waits for any button to be interacted with.
+            </summary>
+            <param name="message">The message to wait on.</param>
+            <param name="predicate">The predicate to filter interactions by.</param>
+            <param name="token">A token to cancel interactivity with at any time. Pass <see cref="P:System.Threading.CancellationToken.None"/> to wait indefinitely.</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.WaitForSelectAsync(DSharpPlus.Entities.DiscordMessage,System.Func{DSharpPlus.EventArgs.ComponentInteractionCreateEventArgs,System.Boolean},System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for any dropdown to be interacted with.
+            </summary>
+            <param name="message">The message to wait for.</param>
+            <param name="predicate">A filter predicate.</param>
+            <param name="timeoutOverride">Override the timeout period specified in <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/>.</param>
+            <exception cref="T:System.ArgumentException">Thrown when the message doesn't contain any dropdowns</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.WaitForSelectAsync(DSharpPlus.Entities.DiscordMessage,System.Func{DSharpPlus.EventArgs.ComponentInteractionCreateEventArgs,System.Boolean},System.Threading.CancellationToken)">
+            <summary>
+            Waits for any dropdown to be interacted with.
+            </summary>
+            <param name="message">The message to wait for.</param>
+            <param name="predicate">A filter predicate.</param>
+            <param name="token">A token that can be used to cancel interactivity. Pass <see cref="P:System.Threading.CancellationToken.None"/> to wait indefinitely.</param>
+            <exception cref="T:System.ArgumentException">Thrown when the message doesn't contain any dropdowns</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.WaitForSelectAsync(DSharpPlus.Entities.DiscordMessage,System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a dropdown to be interacted with.
+            </summary>
+            <param name="message">The message to wait on.</param>
+            <param name="id">The Id of the dropdown to wait for.</param>
+            <param name="timeoutOverride">Overrides the timeout set in <see cref="P:DSharpPlus.Interactivity.InteractivityConfiguration.Timeout"/></param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.WaitForSelectAsync(DSharpPlus.Entities.DiscordMessage,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Waits for a dropdown to be interacted with.
+            </summary>
+            <param name="message">The message to wait on.</param>
+            <param name="id">The Id of the dropdown to wait for.</param>
+            <param name="token">A custom cancellation token that can be cancelled at any point.</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.WaitForSelectAsync(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a dropdown to be interacted with by the specified user.
+            </summary>
+            <param name="message">The message to wait on.</param>
+            <param name="user">The user to wait for.</param>
+            <param name="id">The Id of the dropdown to wait for.</param>
+            <param name="timeoutOverride"></param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.WaitForSelectAsync(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Waits for a dropdown to be interacted with by the specified user.
+            </summary>
+            <param name="message">The message to wait on.</param>
+            <param name="user">The user to wait for.</param>
+            <param name="id">The Id of the dropdown to wait for.</param>
+            <param name="token">A custom cancellation token that can be cancelled at any point.</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.WaitForReactionAsync(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a reaction on this message from a specific user.
+            </summary>
+            <param name="message">Target message.</param>
+            <param name="user">The target user.</param>
+            <param name="timeoutOverride">Overrides the timeout set in <see cref="P:DSharpPlus.Interactivity.InteractivityConfiguration.Timeout"/></param>
+            <exception cref="T:System.InvalidOperationException">Thrown if interactivity is not enabled for the client associated with the message.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.WaitForReactionAsync(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,DSharpPlus.Entities.DiscordEmoji,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a specific reaction on this message from the specified user.
+            </summary>
+            <param name="message">Target message.</param>
+            <param name="user">The target user.</param>
+            <param name="emoji">The target emoji.</param>
+            <param name="timeoutOverride">Overrides the timeout set in <see cref="P:DSharpPlus.Interactivity.InteractivityConfiguration.Timeout"/></param>
+            <exception cref="T:System.InvalidOperationException">Thrown if interactivity is not enabled for the client associated with the message.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.CollectReactionsAsync(DSharpPlus.Entities.DiscordMessage,System.Nullable{System.TimeSpan})">
+            <summary>
+            Collects all reactions on this message within the timeout duration.
+            </summary>
+            <param name="message">The message to collect reactions from.</param>
+            <param name="timeoutOverride">Overrides the timeout set in <see cref="P:DSharpPlus.Interactivity.InteractivityConfiguration.Timeout"/></param>
+            <exception cref="T:System.InvalidOperationException">Thrown if interactivity is not enabled for the client associated with the message.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.DoPollAsync(DSharpPlus.Entities.DiscordMessage,System.Collections.Generic.IEnumerable{DSharpPlus.Entities.DiscordEmoji},System.Nullable{DSharpPlus.Interactivity.Enums.PollBehaviour},System.Nullable{System.TimeSpan})">
+            <summary>
+            Begins a poll using this message.
+            </summary>
+            <param name="message">Target message.</param>
+            <param name="emojis">Options for this poll.</param>
+            <param name="behaviorOverride">Overrides the action set in <see cref="P:DSharpPlus.Interactivity.InteractivityConfiguration.PaginationBehaviour"/></param>
+            <param name="timeoutOverride">Overrides the timeout set in <see cref="P:DSharpPlus.Interactivity.InteractivityConfiguration.Timeout"/></param>
+            <exception cref="T:System.InvalidOperationException">Thrown if interactivity is not enabled for the client associated with the message.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.Extensions.MessageExtensions.GetInteractivity(DSharpPlus.Entities.DiscordMessage)">
+            <summary>
+            Retrieves an interactivity instance from a message instance.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.InteractivityConfiguration">
+            <summary>
+            Configuration class for your Interactivity extension
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityConfiguration.Timeout">
+            <summary>
+            <para>Sets the default interactivity action timeout.</para>
+            <para>Defaults to 1 minute.</para>
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityConfiguration.PollBehaviour">
+            <summary>
+            What to do after the poll ends
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityConfiguration.PaginationEmojis">
+            <summary>
+            Emojis to use for pagination
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityConfiguration.PaginationButtons">
+            <summary>
+            Buttons to use for pagination.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityConfiguration.AckPaginationButtons">
+            <summary>
+            Whether interactivity should ACK buttons that are pushed. Setting this to <see langword="true"/> will also prevent subsequent event handlers from running.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityConfiguration.ButtonBehavior">
+            <summary>
+            How to handle buttons after pagination ends.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityConfiguration.PaginationBehaviour">
+            <summary>
+            How to handle pagination. Defaults to WrapAround.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityConfiguration.PaginationDeletion">
+            <summary>
+            How to handle pagination deletion. Defaults to DeleteEmojis.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityConfiguration.ResponseBehavior">
+            <summary>
+            How to handle invalid interactions. Defaults to Ignore.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityConfiguration.ResponseMessage">
+            <summary>
+            The message to send to the user when processing invalid interactions. Ignored if <see cref="P:DSharpPlus.Interactivity.InteractivityConfiguration.ResponseBehavior"/> is not set to <see cref="F:DSharpPlus.Interactivity.Enums.InteractionResponseBehavior.Respond"/>.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityConfiguration.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/>.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityConfiguration.#ctor(DSharpPlus.Interactivity.InteractivityConfiguration)">
+            <summary>
+            Creates a new instance of <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/>, copying the properties of another configuration.
+            </summary>
+            <param name="other">Configuration the properties of which are to be copied.</param>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.InteractivityEvents">
+            <summary>
+            Contains well-defined event IDs used by the Interactivity extension.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityEvents.Misc">
+            <summary>
+            Miscellaneous events, that do not fit in any other category.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityEvents.InteractivityWaitError">
+            <summary>
+            Events pertaining to errors that happen during waiting for events.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityEvents.InteractivityPaginationError">
+            <summary>
+            Events pertaining to pagination.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityEvents.InteractivityPollError">
+            <summary>
+            Events pertaining to polling.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityEvents.InteractivityCollectorError">
+            <summary>
+            Events pertaining to event collection.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.InteractivityExtension">
+            <summary>
+            Extension class for DSharpPlus.Interactivity
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.DoPollAsync(DSharpPlus.Entities.DiscordMessage,System.Collections.Generic.IEnumerable{DSharpPlus.Entities.DiscordEmoji},System.Nullable{DSharpPlus.Interactivity.Enums.PollBehaviour},System.Nullable{System.TimeSpan})">
+            <summary>
+            Makes a poll and returns poll results.
+            </summary>
+            <param name="m">Message to create poll on.</param>
+            <param name="emojis">Emojis to use for this poll.</param>
+            <param name="behaviour">What to do when the poll ends.</param>
+            <param name="timeout">override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForModalAsync(System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a modal with the specified id to be submitted.
+            </summary>
+            <param name="modal_id">The id of the modal to wait for. Should be unique to avoid issues.</param>
+            <param name="timeoutOverride">Override the timeout period in <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/>.</param>
+            <returns>A <see cref="T:DSharpPlus.Interactivity.InteractivityResult`1"/> with a modal if the interactivity did not time out.</returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForModalAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Waits for a modal with the specified id to be submitted.
+            </summary>
+            <param name="modal_id">The id of the modal to wait for. Should be unique to avoid issues.</param>
+            <param name="token">A custom cancellation token that can be cancelled at any point.</param>
+            <returns>A <see cref="T:DSharpPlus.Interactivity.InteractivityResult`1"/> with a modal if the interactivity did not time out.</returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForModalAsync(System.String,DSharpPlus.Entities.DiscordUser,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a modal with the specificed custom id to be submitted by the given user.
+            </summary>
+            <param name="modal_id">The id of the modal to wait for. Should be unique to avoid issues.</param>
+            <param name="user">The user to wait for the modal from.</param>
+            <param name="timeoutOverride">Override the timeout period in <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/>.</param>
+            <returns>A <see cref="T:DSharpPlus.Interactivity.InteractivityResult`1"/> with a modal if the interactivity did not time out.</returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForModalAsync(System.String,DSharpPlus.Entities.DiscordUser,System.Threading.CancellationToken)">
+            <summary>
+            Waits for a modal with the specificed custom id to be submitted by the given user.
+            </summary>
+            <param name="modal_id">The id of the modal to wait for. Should be unique to avoid issues.</param>
+            <param name="user">The user to wait for the modal from.</param>
+            <param name="token">A custom cancellation token that can be cancelled at any point.</param>
+            <returns>A <see cref="T:DSharpPlus.Interactivity.InteractivityResult`1"/> with a modal if the interactivity did not time out.</returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForButtonAsync(DSharpPlus.Entities.DiscordMessage,System.Collections.Generic.IEnumerable{DSharpPlus.Entities.DiscordButtonComponent},System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for any button in the specified collection to be pressed.
+            </summary>
+            <param name="message">The message to wait on.</param>
+            <param name="buttons">A collection of buttons to listen for.</param>
+            <param name="timeoutOverride">Override the timeout period in <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/>.</param>
+            <returns>A <see cref="T:DSharpPlus.Interactivity.InteractivityResult`1"/> with the result of button that was pressed, if any.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown when attempting to wait for a message that is not authored by the current user.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the message does not contain a button with the specified Id, or any buttons at all.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForButtonAsync(DSharpPlus.Entities.DiscordMessage,System.Collections.Generic.IEnumerable{DSharpPlus.Entities.DiscordButtonComponent},System.Threading.CancellationToken)">
+            <summary>
+            Waits for any button in the specified collection to be pressed.
+            </summary>
+            <param name="message">The message to wait on.</param>
+            <param name="buttons">A collection of buttons to listen for.</param>
+            <param name="token">A custom cancellation token that can be cancelled at any point.</param>
+            <returns>A <see cref="T:DSharpPlus.Interactivity.InteractivityResult`1"/> with the result of button that was pressed, if any.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown when attempting to wait for a message that is not authored by the current user.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the message does not contain a button with the specified Id, or any buttons at all.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForButtonAsync(DSharpPlus.Entities.DiscordMessage,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for any button on the specified message to be pressed.
+            </summary>
+            <param name="message">The message to wait for the button on.</param>
+            <param name="timeoutOverride">Override the timeout period specified in <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/>.</param>
+            <returns>A <see cref="T:DSharpPlus.Interactivity.InteractivityResult`1"/> with the result of button that was pressed, if any.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown when attempting to wait for a message that is not authored by the current user.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the message does not contain a button with the specified Id, or any buttons at all.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForButtonAsync(DSharpPlus.Entities.DiscordMessage,System.Threading.CancellationToken)">
+            <summary>
+            Waits for any button on the specified message to be pressed.
+            </summary>
+            <param name="message">The message to wait for the button on.</param>
+            <param name="token">A custom cancellation token that can be cancelled at any point.</param>
+            <returns>A <see cref="T:DSharpPlus.Interactivity.InteractivityResult`1"/> with the result of button that was pressed, if any.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown when attempting to wait for a message that is not authored by the current user.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the message does not contain a button with the specified Id, or any buttons at all.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForButtonAsync(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for any button on the specified message to be pressed by the specified user.
+            </summary>
+            <param name="message">The message to wait for the button on.</param>
+            <param name="user">The user to wait for the button press from.</param>
+            <param name="timeoutOverride">Override the timeout period specified in <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/>.</param>
+            <returns>A <see cref="T:DSharpPlus.Interactivity.InteractivityResult`1"/> with the result of button that was pressed, if any.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown when attempting to wait for a message that is not authored by the current user.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the message does not contain a button with the specified Id, or any buttons at all.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForButtonAsync(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,System.Threading.CancellationToken)">
+            <summary>
+            Waits for any button on the specified message to be pressed by the specified user.
+            </summary>
+            <param name="message">The message to wait for the button on.</param>
+            <param name="user">The user to wait for the button press from.</param>
+            <param name="token">A custom cancellation token that can be cancelled at any point.</param>
+            <returns>A <see cref="T:DSharpPlus.Interactivity.InteractivityResult`1"/> with the result of button that was pressed, if any.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown when attempting to wait for a message that is not authored by the current user.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the message does not contain a button with the specified Id, or any buttons at all.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForButtonAsync(DSharpPlus.Entities.DiscordMessage,System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a button with the specified Id to be pressed.
+            </summary>
+            <param name="message">The message to wait for the button on.</param>
+            <param name="id">The Id of the button to wait for.</param>
+            <param name="timeoutOverride">Override the timeout period specified in <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/>.</param>
+            <returns>A <see cref="T:DSharpPlus.Interactivity.InteractivityResult`1"/> with the result of the operation.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown when attempting to wait for a message that is not authored by the current user.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the message does not contain a button with the specified Id, or any buttons at all.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForButtonAsync(DSharpPlus.Entities.DiscordMessage,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Waits for a button with the specified Id to be pressed.
+            </summary>
+            <param name="message">The message to wait for the button on.</param>
+            <param name="id">The Id of the button to wait for.</param>
+            <param name="token">Cancellation token.</param>
+            <returns>A <see cref="T:DSharpPlus.Interactivity.InteractivityResult`1"/> with the result of the operation.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown when attempting to wait for a message that is not authored by the current user.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the message does not contain a button with the specified Id, or any buttons at all.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForButtonAsync(DSharpPlus.Entities.DiscordMessage,System.Func{DSharpPlus.EventArgs.ComponentInteractionCreateEventArgs,System.Boolean},System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for any button to be interacted with.
+            </summary>
+            <param name="message">The message to wait on.</param>
+            <param name="predicate">The predicate to filter interactions by.</param>
+            <param name="timeoutOverride">Override the timeout specified in <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/></param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForButtonAsync(DSharpPlus.Entities.DiscordMessage,System.Func{DSharpPlus.EventArgs.ComponentInteractionCreateEventArgs,System.Boolean},System.Threading.CancellationToken)">
+            <summary>
+            Waits for any button to be interacted with.
+            </summary>
+            <param name="message">The message to wait on.</param>
+            <param name="predicate">The predicate to filter interactions by.</param>
+            <param name="token">A token to cancel interactivity with at any time. Pass <see cref="P:System.Threading.CancellationToken.None"/> to wait indefinitely.</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForSelectAsync(DSharpPlus.Entities.DiscordMessage,System.Func{DSharpPlus.EventArgs.ComponentInteractionCreateEventArgs,System.Boolean},System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for any dropdown to be interacted with.
+            </summary>
+            <param name="message">The message to wait for.</param>
+            <param name="predicate">A filter predicate.</param>
+            <param name="timeoutOverride">Override the timeout period specified in <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/>.</param>
+            <exception cref="T:System.ArgumentException">Thrown when the message doesn't contain any dropdowns</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForSelectAsync(DSharpPlus.Entities.DiscordMessage,System.Func{DSharpPlus.EventArgs.ComponentInteractionCreateEventArgs,System.Boolean},System.Threading.CancellationToken)">
+            <summary>
+            Waits for any dropdown to be interacted with.
+            </summary>
+            <param name="message">The message to wait for.</param>
+            <param name="predicate">A filter predicate.</param>
+            <param name="token">A token that can be used to cancel interactivity. Pass <see cref="P:System.Threading.CancellationToken.None"/> to wait indefinitely.</param>
+            <exception cref="T:System.ArgumentException">Thrown when the message doesn't contain any dropdowns</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForSelectAsync(DSharpPlus.Entities.DiscordMessage,System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a dropdown to be interacted with.
+            </summary>
+            <remarks>This is here for backwards-compatibility and will internally create a cancellation token.</remarks>
+            <param name="message">The message to wait on.</param>
+            <param name="id">The Id of the dropdown to wait on.</param>
+            <param name="timeoutOverride">Override the timeout period specified in <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/>.</param>
+            <exception cref="T:System.ArgumentException">Thrown when the message does not have any dropdowns or any dropdown with the specified Id.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForSelectAsync(DSharpPlus.Entities.DiscordMessage,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Waits for a dropdown to be interacted with.
+            </summary>
+            <param name="message">The message to wait on.</param>
+            <param name="id">The Id of the dropdown to wait on.</param>
+            <param name="token">A custom cancellation token that can be cancelled at any point.</param>
+            <exception cref="T:System.ArgumentException">Thrown when the message does not have any dropdowns or any dropdown with the specified Id.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForSelectAsync(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a dropdown to be interacted with by a specific user.
+            </summary>
+            <param name="message">The message to wait on.</param>
+            <param name="user">The user to wait on.</param>
+            <param name="id">The Id of the dropdown to wait on.</param>
+            <param name="timeoutOverride">Override the timeout period specified in <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/>.</param>
+            <exception cref="T:System.ArgumentException">Thrown when the message does not have any dropdowns or any dropdown with the specified Id.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForSelectAsync(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Waits for a dropdown to be interacted with by a specific user.
+            </summary>
+            <param name="message">The message to wait on.</param>
+            <param name="user">The user to wait on.</param>
+            <param name="id">The Id of the dropdown to wait on.</param>
+            <param name="token">A custom cancellation token that can be cancelled at any point.</param>
+            <exception cref="T:System.ArgumentException">Thrown when the message does not have any dropdowns or any dropdown with the specified Id.</exception>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForMessageAsync(System.Func{DSharpPlus.Entities.DiscordMessage,System.Boolean},System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a specific message.
+            </summary>
+            <param name="predicate">Predicate to match.</param>
+            <param name="timeoutoverride">override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(System.Func{DSharpPlus.EventArgs.MessageReactionAddEventArgs,System.Boolean},System.Nullable{System.TimeSpan})">
+            <summary>
+            Wait for a specific reaction.
+            </summary>
+            <param name="predicate">Predicate to match.</param>
+            <param name="timeoutoverride">override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,System.Nullable{System.TimeSpan})">
+            <summary>
+            Wait for a specific reaction.
+            For this Event you need the <see cref="F:DSharpPlus.DiscordIntents.GuildMessageReactions"/> intent specified in <seealso cref="P:DSharpPlus.DiscordConfiguration.Intents"/>
+            </summary>
+            <param name="message">Message reaction was added to.</param>
+            <param name="user">User that made the reaction.</param>
+            <param name="timeoutoverride">override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(System.Func{DSharpPlus.EventArgs.MessageReactionAddEventArgs,System.Boolean},DSharpPlus.Entities.DiscordMessage,DSharpPlus.Entities.DiscordUser,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a specific reaction.
+            For this Event you need the <see cref="F:DSharpPlus.DiscordIntents.GuildMessageReactions"/> intent specified in <seealso cref="P:DSharpPlus.DiscordConfiguration.Intents"/>
+            </summary>
+            <param name="predicate">Predicate to match.</param>
+            <param name="message">Message reaction was added to.</param>
+            <param name="user">User that made the reaction.</param>
+            <param name="timeoutoverride">override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForReactionAsync(System.Func{DSharpPlus.EventArgs.MessageReactionAddEventArgs,System.Boolean},DSharpPlus.Entities.DiscordUser,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a specific reaction.
+            For this Event you need the <see cref="F:DSharpPlus.DiscordIntents.GuildMessageReactions"/> intent specified in <seealso cref="P:DSharpPlus.DiscordConfiguration.Intents"/>
+            </summary>
+            <param name="predicate">predicate to match.</param>
+            <param name="user">User that made the reaction.</param>
+            <param name="timeoutoverride">Override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForUserTypingAsync(DSharpPlus.Entities.DiscordUser,DSharpPlus.Entities.DiscordChannel,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a user to start typing.
+            </summary>
+            <param name="user">User that starts typing.</param>
+            <param name="channel">Channel the user is typing in.</param>
+            <param name="timeoutoverride">Override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForUserTypingAsync(DSharpPlus.Entities.DiscordUser,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for a user to start typing.
+            </summary>
+            <param name="user">User that starts typing.</param>
+            <param name="timeoutoverride">Override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForTypingAsync(DSharpPlus.Entities.DiscordChannel,System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for any user to start typing.
+            </summary>
+            <param name="channel">Channel to type in.</param>
+            <param name="timeoutoverride">Override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.CollectReactionsAsync(DSharpPlus.Entities.DiscordMessage,System.Nullable{System.TimeSpan})">
+            <summary>
+            Collects reactions on a specific message.
+            </summary>
+            <param name="m">Message to collect reactions on.</param>
+            <param name="timeoutoverride">Override timeout period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForEventArgsAsync``1(System.Func{``0,System.Boolean},System.Nullable{System.TimeSpan})">
+            <summary>
+            Waits for specific event args to be received. Make sure the appropriate <see cref="T:DSharpPlus.DiscordIntents"/> are registered, if needed.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="predicate"></param>
+            <param name="timeoutoverride"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.SendPaginatedMessageAsync(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},DSharpPlus.Interactivity.EventHandling.PaginationButtons,System.Nullable{DSharpPlus.Interactivity.Enums.PaginationBehaviour},System.Nullable{DSharpPlus.Interactivity.Enums.ButtonPaginationBehavior},System.Threading.CancellationToken)">
+            <summary>
+            Sends a paginated message with buttons.
+            </summary>
+            <param name="channel">The channel to send it on.</param>
+            <param name="user">User to give control.</param>
+            <param name="pages">The pages.</param>
+            <param name="buttons">Pagination buttons (pass null to use buttons defined in <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/>).</param>
+            <param name="behaviour">Pagination behaviour.</param>
+            <param name="deletion">Deletion behaviour</param>
+            <param name="token">A custom cancellation token that can be cancelled at any point.</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.SendPaginatedMessageAsync(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},DSharpPlus.Interactivity.EventHandling.PaginationButtons,System.Nullable{System.TimeSpan},System.Nullable{DSharpPlus.Interactivity.Enums.PaginationBehaviour},System.Nullable{DSharpPlus.Interactivity.Enums.ButtonPaginationBehavior})">
+            <summary>
+            Sends a paginated message with buttons.
+            </summary>
+            <param name="channel">The channel to send it on.</param>
+            <param name="user">User to give control.</param>
+            <param name="pages">The pages.</param>
+            <param name="buttons">Pagination buttons (pass null to use buttons defined in <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/>).</param>
+            <param name="behaviour">Pagination behaviour.</param>
+            <param name="deletion">Deletion behaviour</param>
+            <param name="timeoutoverride">Override timeout period.</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.SendPaginatedMessageAsync(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},System.Nullable{DSharpPlus.Interactivity.Enums.PaginationBehaviour},System.Nullable{DSharpPlus.Interactivity.Enums.ButtonPaginationBehavior},System.Threading.CancellationToken)">
+            <inheritdoc cref="M:DSharpPlus.Interactivity.InteractivityExtension.SendPaginatedMessageAsync(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},DSharpPlus.Interactivity.EventHandling.PaginationButtons,System.Nullable{DSharpPlus.Interactivity.Enums.PaginationBehaviour},System.Nullable{DSharpPlus.Interactivity.Enums.ButtonPaginationBehavior},System.Threading.CancellationToken)"/>
+            <remarks>This is the "default" overload for SendPaginatedMessageAsync, and will use buttons. Feel free to specify default(PaginationEmojis) to use reactions and emojis specified in <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/>, instead. </remarks>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.SendPaginatedMessageAsync(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},System.Nullable{System.TimeSpan},System.Nullable{DSharpPlus.Interactivity.Enums.PaginationBehaviour},System.Nullable{DSharpPlus.Interactivity.Enums.ButtonPaginationBehavior})">
+            <inheritdoc cref="M:DSharpPlus.Interactivity.InteractivityExtension.SendPaginatedMessageAsync(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},DSharpPlus.Interactivity.EventHandling.PaginationButtons,System.Nullable{System.TimeSpan},System.Nullable{DSharpPlus.Interactivity.Enums.PaginationBehaviour},System.Nullable{DSharpPlus.Interactivity.Enums.ButtonPaginationBehavior})"/>
+            <remarks>This is the "default" overload for SendPaginatedMessageAsync, and will use buttons. Feel free to specify default(PaginationEmojis) to use reactions and emojis specified in <see cref="T:DSharpPlus.Interactivity.InteractivityConfiguration"/>, instead. </remarks>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.SendPaginatedMessageAsync(DSharpPlus.Entities.DiscordChannel,DSharpPlus.Entities.DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},DSharpPlus.Interactivity.PaginationEmojis,System.Nullable{DSharpPlus.Interactivity.Enums.PaginationBehaviour},System.Nullable{DSharpPlus.Interactivity.Enums.PaginationDeletion},System.Nullable{System.TimeSpan})">
+            <summary>
+            Sends a paginated message.
+            For this Event you need the <see cref="F:DSharpPlus.DiscordIntents.GuildMessageReactions"/> intent specified in <seealso cref="P:DSharpPlus.DiscordConfiguration.Intents"/>
+            </summary>
+            <param name="channel">Channel to send paginated message in.</param>
+            <param name="user">User to give control.</param>
+            <param name="pages">Pages.</param>
+            <param name="emojis">Pagination emojis.</param>
+            <param name="behaviour">Pagination behaviour (when hitting max and min indices).</param>
+            <param name="deletion">Deletion behaviour.</param>
+            <param name="timeoutoverride">Override timeout period.</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.SendPaginatedResponseAsync(DSharpPlus.Entities.DiscordInteraction,System.Boolean,DSharpPlus.Entities.DiscordUser,System.Collections.Generic.IEnumerable{DSharpPlus.Interactivity.Page},DSharpPlus.Interactivity.EventHandling.PaginationButtons,System.Nullable{DSharpPlus.Interactivity.Enums.PaginationBehaviour},System.Nullable{DSharpPlus.Interactivity.Enums.ButtonPaginationBehavior},System.Threading.CancellationToken,System.Boolean,DSharpPlus.Interactivity.Enums.ButtonDisableBehavior,System.Collections.Generic.List{DSharpPlus.Interactivity.Enums.PaginationButtonType})">
+            <summary>
+            Sends a paginated message in response to an interaction.
+            <para>
+            <b>Pass the interaction directly. Interactivity will ACK it.</b>
+            </para>
+            </summary>
+            <param name="interaction">The interaction to create a response to.</param>
+            <param name="ephemeral">Whether the response should be ephemeral.</param>
+            <param name="user">The user to listen for button presses from.</param>
+            <param name="pages">The pages to paginate.</param>
+            <param name="buttons">Optional: custom buttons</param>
+            <param name="behaviour">Pagination behaviour.</param>
+            <param name="deletion">Deletion behaviour</param>
+            <param name="token">A custom cancellation token that can be cancelled at any point.</param>
+            <param name="asEditResponse">If the response as edit of previous response.</param>
+            <param name="disableBehavior">Whether to disable or remove the buttons if there is only one page</param>
+            <param name="disabledButtons">Disabled buttons</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForCustomPaginationAsync(DSharpPlus.Interactivity.EventHandling.IPaginationRequest)">
+            <summary>
+            Waits for a custom pagination request to finish.
+            This does NOT handle removing emojis after finishing for you.
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.WaitForCustomComponentPaginationAsync(DSharpPlus.Interactivity.EventHandling.IPaginationRequest)">
+            <summary>
+            Waits for custom button-based pagination request to finish.
+            <br/>
+            This does <i><b>not</b></i> invoke <see cref="M:DSharpPlus.Interactivity.EventHandling.IPaginationRequest.DoCleanupAsync"/>.
+            </summary>
+            <param name="request">The request to wait for.</param>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInContent(System.String,DSharpPlus.Interactivity.Enums.SplitType)">
+            <summary>
+            Generates pages from a string, and puts them in message content.
+            </summary>
+            <param name="input">Input string.</param>
+            <param name="splittype">How to split input string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.Interactivity.InteractivityExtension.GeneratePagesInEmbed(System.String,DSharpPlus.Interactivity.Enums.SplitType,DSharpPlus.Entities.DiscordEmbedBuilder)">
+            <summary>
+            Generates pages from a string, and puts them in message embeds.
+            </summary>
+            <param name="input">Input string.</param>
+            <param name="splittype">How to split input string.</param>
+            <param name="embedbase">Base embed for output embeds.</param>
+            <returns></returns>
+        </member>
+        <member name="T:DSharpPlus.Interactivity.InteractivityResult`1">
+            <summary>
+            Interactivity result
+            </summary>
+            <typeparam name="T">Type of result</typeparam>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityResult`1.TimedOut">
+            <summary>
+            Whether interactivity was timed out
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.Interactivity.InteractivityResult`1.Result">
+            <summary>
+            Result
+            </summary>
+        </member>
+    </members>
+</doc>
