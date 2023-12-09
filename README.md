@@ -1,5 +1,5 @@
 # ASAM
-Brads Digital Server Manager For ASA V0.0.1.04
+Brads Digital Server Manager For ASA V0.1.2.1
 
 
 ASAM Installation Guide:
@@ -20,8 +20,10 @@ Once configured, find the option to start the server.
 Ready to Play!
 
 ASAM simplifies the installation process, making it a seamless experience for both beginners and advanced users. Download now and elevate your Ark adventure!
+
 **Honorable Mentions**
 A Massive Thank you to **Radiolotek** For your support. it means alot for continuation of projects to come!
+
 
 [Discord](https://discord.gg/7GQYecCgtu)
 ![Screenshot_13](https://github.com/CSBrad/ASAM/assets/57268178/79a7ee0b-031f-4924-bf16-fe5c716d8cdd)
