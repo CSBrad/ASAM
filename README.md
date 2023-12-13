@@ -4,6 +4,12 @@ Welcome to ASAM - your go-to solution for managing your Ark Survival Evolved ser
 
 **Installation Guide:**
 
+**Step 0.0 Download Required .net Frameworks**
+```
+Please make sure you have the following frameworks:
+.net 6.0
+.net 4.7.2
+```
 
 **Step 1.0: Download Required CMD**
 ```
