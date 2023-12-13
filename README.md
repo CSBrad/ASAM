@@ -1,28 +1,71 @@
-# ASAM
-Brads Digital Server Manager For ASA V0.1.2.1
+#ASAM: Brads Digital Server Manager for ASA V0.1.2.1**
+
+Welcome to ASAM - your go-to solution for managing your Ark Survival Evolved server with ease!
+
+**Installation Guide:**
 
 
-ASAM Installation Guide:
-
-Step 1.0: Download Required CMD
+**Step 1.0: Download Required CMD**
+```
 Find the "Download" button in the ASAM interface.
-Click "Download" to install the necessary Command Prompt (CMD).
+Click "Download" to seamlessly install the necessary Command Prompt (CMD).
+```
 
-Step 2.0: Update ASA
-In the ASAM interface, find the "Update ASA" button.
-Click "Update ASA" to download or update the ASAM software.
-The Built in console will give you updates. Please be patient with this step as it may take a while.
 
-Step 3.0: Edit Configs and Start
+**Step 2.0: Update ASA**
+```
+Locate the "Update ASA" button in the ASAM interface.
+Click "Update ASA" to effortlessly download or update the ASAM software.
+The built-in console will provide updates; exercise patience, as this step may take a while.
+```
+
+
+**Step 3.0: Edit Configs and Start**
+```
 Access the ASAM interface and navigate to the configuration settings.
-Customize your server configurations as desired.
+Customize your server configurations to your liking.
 Once configured, find the option to start the server.
 Ready to Play!
+ASAM streamlines the installation process, ensuring a seamless experience for both beginners and advanced users. Download now and elevate your Ark adventure!
+```
 
-ASAM simplifies the installation process, making it a seamless experience for both beginners and advanced users. Download now and elevate your Ark adventure!
 
+**Platform**
+```
+Windows 10, 11
+```
+
+
+**Disclaimer**
+```
+Earlier versions than Windows 10 have not been tested; use at your own risk of data loss!
+```
+
+
+**Features**
+```
+  -Automatic Backups
+  -Auto Restarts
+  -RCON Window
+  -Built-in Text Editor for Game and GameUserSettings.ini
+  -Customizable rates GUI
+  -Discord Bot
+  -RCON Commands
+  -Stop Server
+```
+
+
+**Coming Soon**
+```
+  -Server Monitor Tab (All your servers in one place!)
+  -Player List Tab (Kick Ban On the Fly)
+  -Customizable Drops Tab
+  -Customizable Stacksize Override Tab
+  ```
+
+  
 **Honorable Mentions**
-A Massive Thank you to **Radiolotek** For your support. it means alot for continuation of projects to come!
+A Massive Thank You to Radiolotek for your support. It means a lot for the continuation of projects to come!
 
 
 [Discord](https://discord.gg/7GQYecCgtu)
