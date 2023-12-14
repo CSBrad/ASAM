@@ -1,0 +1,1309 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DSharpPlus.SlashCommands</name>
+    </assembly>
+    <members>
+        <member name="T:DSharpPlus.SlashCommands.ApplicationCommandModule">
+            <summary>
+            Represents a base class for slash command modules.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.ApplicationCommandModule.BeforeSlashExecutionAsync(DSharpPlus.SlashCommands.InteractionContext)">
+            <summary>
+            Called before the execution of a slash command in the module.
+            </summary>
+            <param name="ctx">The context.</param>
+            <returns> Whether or not to execute the slash command.</returns>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.ApplicationCommandModule.AfterSlashExecutionAsync(DSharpPlus.SlashCommands.InteractionContext)">
+            <summary>
+            Called after the execution of a slash command in the module.
+            </summary>
+            <param name="ctx">The context.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.ApplicationCommandModule.BeforeContextMenuExecutionAsync(DSharpPlus.SlashCommands.ContextMenuContext)">
+            <summary>
+            Called before the execution of a context menu in the module.
+            </summary>
+            <param name="ctx">The context.</param>
+            <returns> Whether or not to execute the slash command. </returns>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.ApplicationCommandModule.AfterContextMenuExecutionAsync(DSharpPlus.SlashCommands.ContextMenuContext)">
+            <summary>
+            Called after the execution of a context menu in the module.
+            </summary>
+            <param name="ctx">The context.</param>
+            <returns></returns>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.AutocompleteAttribute">
+            <summary>
+            Handles autocomplete choices for a slash command parameter.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.AutocompleteAttribute.Provider">
+            <summary>
+            The provider for this autocomplete parameter.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.AutocompleteAttribute.#ctor(System.Type)">
+            <summary>
+            Handles autocomplete choices for a slash command parameter.
+            </summary>
+            <param name="provider">The type of the autocomplete provider. This should inherit from <see cref="T:DSharpPlus.SlashCommands.IAutocompleteProvider"/>.</param>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.ChannelTypesAttribute">
+            <summary>
+            Defines allowed channel types for a channel parameter.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.ChannelTypesAttribute.ChannelTypes">
+            <summary>
+            Allowed channel types.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.ChannelTypesAttribute.#ctor(DSharpPlus.ChannelType[])">
+            <summary>
+            Defines allowed channel types for a channel parameter.
+            </summary>
+            <param name="channelTypes">The channel types to allow.</param>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.ChoiceAttribute">
+            <summary>
+            Adds a choice for this slash command option.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.ChoiceAttribute.Name">
+            <summary>
+            Gets the name of the choice.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.ChoiceAttribute.Value">
+            <summary>
+            Gets the value of the choice.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.ChoiceAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Adds a choice to the slash command option.
+            </summary>
+            <param name="name">The name of the choice.</param>
+            <param name="value">The value of the choice.</param>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.ChoiceAttribute.#ctor(System.String,System.Int64)">
+            <summary>
+            Adds a choice to the slash command option.
+            </summary>
+            <param name="name">The name of the choice.</param>
+            <param name="value">The value of the choice.</param>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.ChoiceAttribute.#ctor(System.String,System.Double)">
+            <summary>
+            Adds a choice to the slash command option.
+            </summary>
+            <param name="name">The name of the choice.</param>
+            <param name="value">The value of the choice.</param>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.ChoiceNameAttribute">
+            <summary>
+            Sets the name for this enum choice.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.ChoiceNameAttribute.Name">
+            <summary>
+            The name.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.ChoiceNameAttribute.#ctor(System.String)">
+            <summary>
+            Sets the name for this enum choice.
+            </summary>
+            <param name="name">The name for this enum choice.</param>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.ChoiceProviderAttribute">
+            <summary>
+            Sets a IChoiceProvider for a command options. ChoiceProviders can be used to provide
+            DiscordApplicationCommandOptionChoice from external sources such as a database.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.ChoiceProviderAttribute.ProviderType">
+            <summary>
+            The type of the provider.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.ChoiceProviderAttribute.#ctor(System.Type)">
+            <summary>
+            Adds a choice provider to this command.
+            </summary>
+            <param name="providerType">The type of the provider.</param>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.ContextMenuAttribute">
+            <summary>
+            Marks this method as a context menu.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.ContextMenuAttribute.Name">
+            <summary>
+            Gets the name of this context menu.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.ContextMenuAttribute.Type">
+            <summary>
+            Gets the type of this context menu.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.ContextMenuAttribute.DefaultPermission">
+            <summary>
+            Gets whether this command is enabled by default.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.ContextMenuAttribute.#ctor(DSharpPlus.ApplicationCommandType,System.String,System.Boolean)">
+            <summary>
+            Marks this method as a context menu.
+            </summary>
+            <param name="type">The type of the context menu.</param>
+            <param name="name">The name of the context menu.</param>
+            <param name="defaultPermission">Sets whether the command should be enabled by default.</param>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.DescriptionLocalizationAttribute">
+            <summary>
+            Specifies a locale for a slash command description. The longest description is the one that counts toward character limits.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.DontInjectAttribute">
+            <summary>
+            Prevents this field or property from having its value injected by dependency injection.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.GuildOnlyAttribute">
+            <summary>
+            Indicates that a global application command cannot be invoked in DMs.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.MaximumAttribute">
+            <summary>
+            Sets a maximum value for this slash command option. Only valid for <see cref="T:System.Int64"/> or <see cref="T:System.Double"/> parameters.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.MaximumAttribute.Value">
+            <summary>
+            The value.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.MaximumAttribute.#ctor(System.Int64)">
+            <summary>
+            Sets a maximum value for this slash command option. Only valid for <see cref="T:System.Int64"/> or <see cref="T:System.Double"/> parameters.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.MaximumAttribute.#ctor(System.Double)">
+            <summary>
+            Sets a maximum value for this slash command option. Only valid for <see cref="T:System.Int64"/> or <see cref="T:System.Double"/> parameters.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.MaximumLengthAttribute">
+            <summary>
+            Sets a maximum allowed length for this slash command option. Only valid for <see cref="T:System.String"/> parameters.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.MaximumLengthAttribute.Value">
+            <summary>
+            The value.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.MaximumLengthAttribute.#ctor(System.Int32)">
+            <summary>
+            Sets a maximum allowed length for this slash command option. Only valid for <see cref="T:System.String"/> parameters.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.MinimumAttribute">
+            <summary>
+            Sets a minimum value for this slash command option. Only valid for <see cref="T:System.Int64"/> or <see cref="T:System.Double"/> parameters.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.MinimumAttribute.Value">
+            <summary>
+            The value.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.MinimumAttribute.#ctor(System.Int64)">
+            <summary>
+            Sets a minimum value for this slash command option. Only valid for <see cref="T:System.Int64"/> or <see cref="T:System.Double"/> parameters.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.MinimumAttribute.#ctor(System.Double)">
+            <summary>
+            Sets a minimum value for this slash command option. Only valid for <see cref="T:System.Int64"/> or <see cref="T:System.Double"/> parameters.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.MinimumLengthAttribute">
+            <summary>
+            Sets a minimum allowed length for this slash command option. Only valid for <see cref="T:System.String"/> parameters.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.MinimumLengthAttribute.Value">
+            <summary>
+            The value.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.MinimumLengthAttribute.#ctor(System.Int32)">
+            <summary>
+            Sets a minimum allowed length for this slash command option. Only valid for <see cref="T:System.String"/> parameters.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.NameLocalizationAttribute">
+            <summary>
+            Specifies a locale for a slash command name. The longest name is the name that counts toward character limits.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.OptionAttribute">
+            <summary>
+            Marks this parameter as an option for a slash command.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.OptionAttribute.Name">
+            <summary>
+            Gets the name of this option.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.OptionAttribute.Description">
+            <summary>
+            Gets the description of this option.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.OptionAttribute.Autocomplete">
+            <summary>
+            Gets whether this option should autocomplete.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.OptionAttribute.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Marks this parameter as an option for a slash command.
+            </summary>
+            <param name="name">The name of the option.</param>
+            <param name="description">The description of the option.</param>
+            <param name="autocomplete">Whether this option should autocomplete.</param>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.SlashCommandAttribute">
+            <summary>
+            Marks this method as a slash command.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.SlashCommandAttribute.Name">
+            <summary>
+            Gets the name of this command.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.SlashCommandAttribute.Description">
+            <summary>
+            Gets the description of this command.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.SlashCommandAttribute.DefaultPermission">
+            <summary>
+            Gets whether this command is enabled by default.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.SlashCommandAttribute.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Marks this method as a slash command.
+            </summary>
+            <param name="name">Sets the name of this slash command.</param>
+            <param name="description">Sets the description of this slash command.</param>
+            <param name="defaultPermission">Sets whether the command should be enabled by default.</param>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.SlashCommandGroupAttribute">
+            <summary>
+            Marks this class a slash command group.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.SlashCommandGroupAttribute.Name">
+            <summary>
+            Gets the name of this slash command group.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.SlashCommandGroupAttribute.Description">
+            <summary>
+            Gets the description of this slash command group.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.SlashCommandGroupAttribute.DefaultPermission">
+            <summary>
+            Gets whether this command is enabled on default.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.SlashCommandGroupAttribute.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Marks this class as a slash command group.
+            </summary>
+            <param name="name">Sets the name of this command group.</param>
+            <param name="description">Sets the description of this command group.</param>
+            <param name="defaultPermission">Sets whether this command group is enabled on default.</param>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.SlashModuleLifespanAttribute">
+            <summary>
+            Defines this slash command module's lifespan. Module lifespans are transient by default.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.SlashModuleLifespanAttribute.Lifespan">
+            <summary>
+            Gets the lifespan.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.SlashModuleLifespanAttribute.#ctor(DSharpPlus.SlashCommands.SlashModuleLifespan)">
+            <summary>
+            Defines this slash command module's lifespan.
+            </summary>
+            <param name="lifespan">The lifespan of the module. Module lifespans are transient by default.</param>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.SlashModuleLifespan">
+            <summary>
+            Represents a slash command module lifespan.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.SlashCommands.SlashModuleLifespan.Scoped">
+            <summary>
+            Whether this module should be initiated every time a command is run, with dependencies injected from a scope.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.SlashCommands.SlashModuleLifespan.Transient">
+            <summary>
+            Whether this module should be initiated every time a command is run.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.SlashCommands.SlashModuleLifespan.Singleton">
+            <summary>
+            Whether this module should be initiated at startup.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.ContextMenuCheckBaseAttribute">
+            <summary>
+            The base class for a pre-execution check for a context menu.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.ContextMenuCheckBaseAttribute.ExecuteChecksAsync(DSharpPlus.SlashCommands.ContextMenuContext)">
+            <summary>
+            Checks whether this command can be executed within the current context.
+            </summary>
+            <param name="ctx">The context.</param>
+            <returns>Whether the checks passed.</returns>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.SlashCheckBaseAttribute">
+            <summary>
+            The base class for a pre-execution check for a slash command.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.SlashCheckBaseAttribute.ExecuteChecksAsync(DSharpPlus.SlashCommands.InteractionContext)">
+            <summary>
+            Checks whether this command can be executed within the current context.
+            </summary>
+            <param name="ctx">The context.</param>
+            <returns>Whether the checks passed.</returns>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.Attributes.SlashCooldownAttribute">
+            <summary>
+            Defines a cooldown for this command. This allows you to define how many times can users execute a specific command
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.Attributes.SlashCooldownAttribute.MaxUses">
+            <summary>
+            Gets the maximum number of uses before this command triggers a cooldown for its bucket.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.Attributes.SlashCooldownAttribute.Reset">
+            <summary>
+            Gets the time after which the cooldown is reset.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.Attributes.SlashCooldownAttribute.BucketType">
+            <summary>
+            Gets the type of the cooldown bucket. This determines how cooldowns are applied.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.SlashCommands.Attributes.SlashCooldownAttribute._buckets">
+            <summary>
+            Gets the cooldown buckets for this command.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashCooldownAttribute.#ctor(System.Int32,System.Double,DSharpPlus.SlashCommands.Attributes.SlashCooldownBucketType)">
+            <summary>
+            Defines a cooldown for this command. This means that users will be able to use the command a specific number of times before they have to wait to use it again.
+            </summary>
+            <param name="maxUses">Number of times the command can be used before triggering a cooldown.</param>
+            <param name="resetAfter">Number of seconds after which the cooldown is reset.</param>
+            <param name="bucketType">Type of cooldown bucket. This allows controlling whether the bucket will be cooled down per user, guild, channel, or globally.</param>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashCooldownAttribute.GetBucket(DSharpPlus.SlashCommands.InteractionContext)">
+            <summary>
+            Gets a cooldown bucket for given command context.
+            </summary>
+            <param name="ctx">Command context to get cooldown bucket for.</param>
+            <returns>Requested cooldown bucket, or null if one wasn't present.</returns>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashCooldownAttribute.GetRemainingCooldown(DSharpPlus.SlashCommands.InteractionContext)">
+            <summary>
+            Calculates the cooldown remaining for given command context.
+            </summary>
+            <param name="ctx">Context for which to calculate the cooldown.</param>
+            <returns>Remaining cooldown, or zero if no cooldown is active.</returns>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashCooldownAttribute.GetBucketId(DSharpPlus.SlashCommands.InteractionContext,System.UInt64@,System.UInt64@,System.UInt64@)">
+            <summary>
+            Calculates bucket ID for given command context.
+            </summary>
+            <param name="ctx">Context for which to calculate bucket ID for.</param>
+            <param name="userId">ID of the user with which this bucket is associated.</param>
+            <param name="channelId">ID of the channel with which this bucket is associated.</param>
+            <param name="guildId">ID of the guild with which this bucket is associated.</param>
+            <returns>Calculated bucket ID.</returns>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.Attributes.SlashCooldownBucketType">
+            <summary>
+            Defines how are command cooldowns applied.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.SlashCommands.Attributes.SlashCooldownBucketType.User">
+            <summary>
+            Denotes that the command will have its cooldown applied per-user.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.SlashCommands.Attributes.SlashCooldownBucketType.Channel">
+            <summary>
+            Denotes that the command will have its cooldown applied per-channel.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.SlashCommands.Attributes.SlashCooldownBucketType.Guild">
+            <summary>
+            Denotes that the command will have its cooldown applied per-guild. In DMs, this applies the cooldown per-channel.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.SlashCommands.Attributes.SlashCooldownBucketType.Global">
+            <summary>
+            Denotes that the command will have its cooldown applied globally.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket">
+            <summary>
+            Represents a cooldown bucket for commands.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket.FullCommandName">
+            <summary>
+            The command's full name (includes groups and subcommands).
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket.BotId">
+            <summary>
+            The bot's ID.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket.UserId">
+            <summary>
+            Gets the ID of the user with whom this cooldown is associated.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket.ChannelId">
+            <summary>
+            Gets the ID of the channel with which this cooldown is associated.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket.GuildId">
+            <summary>
+            Gets the ID of the guild with which this cooldown is associated.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket.BucketId">
+            <summary>
+            Gets the ID of the bucket. This is used to distinguish between cooldown buckets.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket.RemainingUses">
+            <summary>
+            Gets the remaining number of uses before the cooldown is triggered.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket.MaxUses">
+            <summary>
+            Gets the maximum number of times this command can be used in given timespan.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket.ResetsAt">
+            <summary>
+            Gets the date and time at which the cooldown resets.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket.Reset">
+            <summary>
+            Gets the time after which this cooldown resets.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket._usageSemaphore">
+            <summary>
+            Gets the semaphore used to lock the use value.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket.#ctor(System.String,System.UInt64,System.Int32,System.TimeSpan,System.UInt64,System.UInt64,System.UInt64)">
+            <summary>
+            Creates a new command cooldown bucket.
+            </summary>
+            <param name="fullCommandName">Full name of the command.</param>
+            <param name="botId">ID of the bot.</param>
+            <param name="maxUses">Maximum number of uses for this bucket.</param>
+            <param name="resetAfter">Time after which this bucket resets.</param>
+            <param name="userId">ID of the user with which this cooldown is associated.</param>
+            <param name="channelId">ID of the channel with which this cooldown is associated.</param>
+            <param name="guildId">ID of the guild with which this cooldown is associated.</param>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket.DecrementUseAsync">
+            <summary>
+            Decrements the remaining use counter.
+            </summary>
+            <returns>Whether decrement succeeded or not.</returns>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket.ToString">
+            <summary>
+            Returns a string representation of this command cooldown bucket.
+            </summary>
+            <returns>String representation of this command cooldown bucket.</returns>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket.Equals(System.Object)">
+            <summary>
+            Checks whether this <see cref="T:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket"/> is equal to another object.
+            </summary>
+            <param name="obj">Object to compare to.</param>
+            <returns>Whether the object is equal to this <see cref="T:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket"/>.</returns>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket.Equals(DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket)">
+            <summary>
+            Checks whether this <see cref="T:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket"/> is equal to another <see cref="T:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket"/>.
+            </summary>
+            <param name="other"><see cref="T:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket"/> to compare to.</param>
+            <returns>Whether the <see cref="T:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket"/> is equal to this <see cref="T:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket"/>.</returns>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket.GetHashCode">
+            <summary>
+            Gets the hash code for this <see cref="T:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket"/>.
+            </summary>
+            <returns>The hash code for this <see cref="T:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket"/>.</returns>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket.op_Equality(DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket,DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket)">
+            <summary>
+            Gets whether the two <see cref="T:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket"/> objects are equal.
+            </summary>
+            <param name="bucket1">First bucket to compare.</param>
+            <param name="bucket2">Second bucket to compare.</param>
+            <returns>Whether the two buckets are equal.</returns>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket.op_Inequality(DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket,DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket)">
+            <summary>
+            Gets whether the two <see cref="T:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket"/> objects are not equal.
+            </summary>
+            <param name="bucket1">First bucket to compare.</param>
+            <param name="bucket2">Second bucket to compare.</param>
+            <returns>Whether the two buckets are not equal.</returns>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashCommandCooldownBucket.MakeId(System.String,System.UInt64,System.UInt64,System.UInt64,System.UInt64)">
+            <summary>
+            Creates a bucket ID from given bucket parameters.
+            </summary>
+            <param name="fullCommandName">Full name of the command with which this cooldown is associated.</param>
+            <param name="botId">ID of the bot with which this cooldown is associated.</param>
+            <param name="userId">ID of the user with which this cooldown is associated.</param>
+            <param name="channelId">ID of the channel with which this cooldown is associated.</param>
+            <param name="guildId">ID of the guild with which this cooldown is associated.</param>
+            <returns>Generated bucket ID.</returns>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.Attributes.SlashRequireBotPermissionsAttribute">
+            <summary>
+            Defines that usage of this slash command is only possible when the bot is granted a specific permission.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.Attributes.SlashRequireBotPermissionsAttribute.Permissions">
+            <summary>
+            Gets the permissions required by this attribute.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.Attributes.SlashRequireBotPermissionsAttribute.IgnoreDms">
+            <summary>
+            Gets or sets this check's behaviour in DMs. True means the check will always pass in DMs, whereas false means that it will always fail.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashRequireBotPermissionsAttribute.#ctor(DSharpPlus.Permissions,System.Boolean)">
+            <summary>
+            Defines that usage of this slash command is only possible when the bot is granted a specific permission.
+            </summary>
+            <param name="permissions">Permissions required to execute this command.</param>
+            <param name="ignoreDms">Sets this check's behaviour in DMs. True means the check will always pass in DMs, whereas false means that it will always fail.</param>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashRequireBotPermissionsAttribute.ExecuteChecksAsync(DSharpPlus.SlashCommands.InteractionContext)">
+            <summary>
+            Runs checks.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.Attributes.SlashRequireDirectMessageAttribute">
+            <summary>
+            Defines that this slash command is only usable within a direct message channel.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashRequireDirectMessageAttribute.#ctor">
+            <summary>
+            Defines that this command is only usable within a direct message channel.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashRequireDirectMessageAttribute.ExecuteChecksAsync(DSharpPlus.SlashCommands.InteractionContext)">
+            <summary>
+            Runs checks.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.Attributes.SlashRequireGuildAttribute">
+            <summary>
+            Defines that this slash command is only usable within a guild.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashRequireGuildAttribute.#ctor">
+            <summary>
+            Defines that this command is only usable within a guild.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashRequireGuildAttribute.ExecuteChecksAsync(DSharpPlus.SlashCommands.InteractionContext)">
+            <summary>
+            Runs checks.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.Attributes.SlashRequireOwnerAttribute">
+            <summary>
+            Defines that this slash command is restricted to the owner of the bot.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashRequireOwnerAttribute.#ctor">
+            <summary>
+            Defines that this slash command is restricted to the owner of the bot.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashRequireOwnerAttribute.ExecuteChecksAsync(DSharpPlus.SlashCommands.InteractionContext)">
+            <summary>
+            Runs checks.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.Attributes.SlashRequirePermissionsAttribute">
+            <summary>
+            Defines that usage of this slash command is restricted to members with specified permissions. This check also verifies that the bot has the same permissions.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.Attributes.SlashRequirePermissionsAttribute.Permissions">
+            <summary>
+            Gets the permissions required by this attribute.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.Attributes.SlashRequirePermissionsAttribute.IgnoreDms">
+            <summary>
+            Gets or sets this check's behaviour in DMs. True means the check will always pass in DMs, whereas false means that it will always fail.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashRequirePermissionsAttribute.#ctor(DSharpPlus.Permissions,System.Boolean)">
+            <summary>
+            Defines that usage of this command is restricted to members with specified permissions. This check also verifies that the bot has the same permissions.
+            </summary>
+            <param name="permissions">Permissions required to execute this command.</param>
+            <param name="ignoreDms">Sets this check's behaviour in DMs. True means the check will always pass in DMs, whereas false means that it will always fail.</param>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashRequirePermissionsAttribute.ExecuteChecksAsync(DSharpPlus.SlashCommands.InteractionContext)">
+            <summary>
+            Runs checks.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.Attributes.SlashRequireUserPermissionsAttribute">
+            <summary>
+            Defines that usage of this command is restricted to members with specified permissions.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.Attributes.SlashRequireUserPermissionsAttribute.Permissions">
+            <summary>
+            Gets the permissions required by this attribute.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.Attributes.SlashRequireUserPermissionsAttribute.IgnoreDms">
+            <summary>
+            Gets or sets this check's behaviour in DMs. True means the check will always pass in DMs, whereas false means that it will always fail.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashRequireUserPermissionsAttribute.#ctor(DSharpPlus.Permissions,System.Boolean)">
+            <summary>
+            Defines that usage of this command is restricted to members with specified permissions.
+            </summary>
+            <param name="permissions">Permissions required to execute this command.</param>
+            <param name="ignoreDms">Sets this check's behaviour in DMs. True means the check will always pass in DMs, whereas false means that it will always fail.</param>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.Attributes.SlashRequireUserPermissionsAttribute.ExecuteChecksAsync(DSharpPlus.SlashCommands.InteractionContext)">
+            <summary>
+            Runs checks.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.ChoiceProvider">
+            <summary>
+            Implementation of <see cref="T:DSharpPlus.SlashCommands.IChoiceProvider"/> with access to service collection.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.ChoiceProvider.Provider">
+            <summary>
+            Sets the choices for the slash command.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.ChoiceProvider.Services">
+            <summary>
+            Sets the service provider.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.ChoiceProvider.GuildId">
+            <summary>
+            The optional ID of the Guild the command got registered for.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.ContextMenuExecutionChecksFailedException">
+            <summary>
+            Thrown when a pre-execution check for a slash command fails.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.SlashCommands.ContextMenuExecutionChecksFailedException.FailedChecks">
+            <summary>
+            The list of failed checks.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.AutocompleteContext">
+            <summary>
+            Represents a context for an autocomplete interaction.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.AutocompleteContext.Interaction">
+            <summary>
+            The interaction created.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.AutocompleteContext.Client">
+            <summary>
+            Gets the client for this interaction.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.AutocompleteContext.Guild">
+            <summary>
+            Gets the guild this interaction was executed in.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.AutocompleteContext.Channel">
+            <summary>
+            Gets the channel this interaction was executed in.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.AutocompleteContext.User">
+            <summary>
+            Gets the user which executed this interaction.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.AutocompleteContext.Member">
+            <summary>
+            Gets the member which executed this interaction, or null if the command is in a DM.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.AutocompleteContext.SlashCommandsExtension">
+            <summary>
+            Gets the slash command module this interaction was created in.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.AutocompleteContext.Services">
+            <summary>
+            <para>Gets the service provider.</para>
+            <para>This allows passing data around without resorting to static members.</para>
+            <para>Defaults to null.</para>
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.AutocompleteContext.Options">
+            <summary>
+            The options already provided.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.AutocompleteContext.FocusedOption">
+            <summary>
+            The option to auto-fill for.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.AutocompleteContext.OptionValue">
+            <summary>
+            The given value of the focused option.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.BaseContext">
+            <summary>
+            Represents a base context for application command contexts.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.BaseContext.Interaction">
+            <summary>
+            Gets the interaction that was created.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.BaseContext.Client">
+            <summary>
+            Gets the client for this interaction.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.BaseContext.Guild">
+            <summary>
+            Gets the guild this interaction was executed in.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.BaseContext.Channel">
+            <summary>
+            Gets the channel this interaction was executed in.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.BaseContext.User">
+            <summary>
+            Gets the user which executed this interaction.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.BaseContext.Member">
+            <summary>
+            Gets the member which executed this interaction, or null if the command is in a DM.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.BaseContext.SlashCommandsExtension">
+            <summary>
+            Gets the slash command module this interaction was created in.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.BaseContext.Token">
+            <summary>
+            Gets the token for this interaction.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.BaseContext.InteractionId">
+            <summary>
+            Gets the id for this interaction.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.BaseContext.CommandName">
+            <summary>
+            Gets the name of the command.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.BaseContext.QualifiedName">
+            <summary>
+            Gets the qualified name of the command.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.BaseContext.Type">
+            <summary>
+            Gets the type of this interaction.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.BaseContext.Services">
+            <summary>
+            <para>Gets the service provider.</para>
+            <para>This allows passing data around without resorting to static members.</para>
+            <para>Defaults to null.</para>
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.BaseContext.CreateResponseAsync(DSharpPlus.InteractionResponseType,DSharpPlus.Entities.DiscordInteractionResponseBuilder)">
+            <summary>
+            Creates a response to this interaction.
+            <para>You must create a response within 3 seconds of this interaction being executed; if the command has the potential to take more than 3 seconds, use <see cref="M:DSharpPlus.SlashCommands.BaseContext.DeferAsync(System.Boolean)"/> at the start, and edit the response later.</para>
+            </summary>
+            <param name="type">The type of the response.</param>
+            <param name="builder">The data to be sent, if any.</param>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.BaseContext.CreateResponseAsync(DSharpPlus.Entities.DiscordInteractionResponseBuilder)">
+            <inheritdoc cref="M:DSharpPlus.SlashCommands.BaseContext.CreateResponseAsync(DSharpPlus.InteractionResponseType,DSharpPlus.Entities.DiscordInteractionResponseBuilder)"/>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.BaseContext.CreateResponseAsync(System.String,DSharpPlus.Entities.DiscordEmbed,System.Boolean)">
+            <summary>
+            Creates a response to this interaction.
+            <para>You must create a response within 3 seconds of this interaction being executed; if the command has the potential to take more than 3 seconds, use <see cref="M:DSharpPlus.SlashCommands.BaseContext.DeferAsync(System.Boolean)"/> at the start, and edit the response later.</para>
+            </summary>
+            <param name="content">Content to send in the response.</param>
+            <param name="embed">Embed to send in the response.</param>
+            <param name="ephemeral">Whether the response should be ephemeral.</param>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.BaseContext.CreateResponseAsync(System.String,System.Boolean)">
+            <inheritdoc cref="M:DSharpPlus.SlashCommands.BaseContext.CreateResponseAsync(System.String,DSharpPlus.Entities.DiscordEmbed,System.Boolean)"/>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.BaseContext.CreateResponseAsync(DSharpPlus.Entities.DiscordEmbed,System.Boolean)">
+            <inheritdoc cref="M:DSharpPlus.SlashCommands.BaseContext.CreateResponseAsync(System.String,DSharpPlus.Entities.DiscordEmbed,System.Boolean)"/>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.BaseContext.DeferAsync(System.Boolean)">
+            <summary>
+            Creates a deferred response to this interaction.
+            </summary>
+            <param name="ephemeral">Whether the response should be ephemeral.</param>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.BaseContext.EditResponseAsync(DSharpPlus.Entities.DiscordWebhookBuilder,System.Collections.Generic.IEnumerable{DSharpPlus.Entities.DiscordAttachment})">
+            <summary>
+            Edits the interaction response.
+            </summary>
+            <param name="builder">The data to edit the response with.</param>
+            <param name="attachments">Attached files to keep.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.BaseContext.DeleteResponseAsync">
+            <summary>
+            Deletes the interaction response.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.BaseContext.FollowUpAsync(DSharpPlus.Entities.DiscordFollowupMessageBuilder)">
+            <summary>
+            Creates a follow up message to the interaction.
+            </summary>
+            <param name="builder">The message to be sent, in the form of a webhook.</param>
+            <returns>The created message.</returns>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.BaseContext.EditFollowupAsync(System.UInt64,DSharpPlus.Entities.DiscordWebhookBuilder,System.Collections.Generic.IEnumerable{DSharpPlus.Entities.DiscordAttachment})">
+            <summary>
+            Edits a followup message.
+            </summary>
+            <param name="followupMessageId">The id of the followup message to edit.</param>
+            <param name="builder">The webhook builder.</param>
+            <param name="attachments">Attached files to keep.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.BaseContext.DeleteFollowupAsync(System.UInt64)">
+            <summary>
+            Deletes a followup message.
+            </summary>
+            <param name="followupMessageId">The id of the followup message to delete.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.BaseContext.GetOriginalResponseAsync">
+            <summary>
+            Gets the original interaction response.
+            </summary>
+            <returns>The original interaction response.</returns>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.ContextMenuContext">
+            <summary>
+            Represents a context for a context menu.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.ContextMenuContext.TargetUser">
+            <summary>
+            The user this command targets, if applicable.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.ContextMenuContext.TargetMember">
+            <summary>
+            The member this command targets, if applicable.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.ContextMenuContext.TargetMessage">
+            <summary>
+            The message this command targets, if applicable.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.InteractionContext">
+            <summary>
+            Represents a context for an interaction.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.InteractionContext.ResolvedUserMentions">
+            <summary>
+            Gets the users mentioned in the command parameters.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.InteractionContext.ResolvedRoleMentions">
+            <summary>
+            Gets the roles mentioned in the command parameters.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.InteractionContext.ResolvedChannelMentions">
+            <summary>
+            Gets the channels mentioned in the command parameters.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.EventArgs.AutocompleteErrorEventArgs">
+            <summary>
+            Represents arguments for a <see cref="E:DSharpPlus.SlashCommands.SlashCommandsExtension.AutocompleteErrored"/> event.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.EventArgs.AutocompleteErrorEventArgs.Exception">
+            <summary>
+            The exception thrown.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.EventArgs.AutocompleteErrorEventArgs.Context">
+            <summary>
+            The context of the autocomplete.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.EventArgs.AutocompleteErrorEventArgs.ProviderType">
+            <summary>
+            The type of the provider.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.EventArgs.AutocompleteExecutedEventArgs">
+            <summary>
+            Represents arguments for a <see cref="E:DSharpPlus.SlashCommands.SlashCommandsExtension.AutocompleteExecuted"/> event.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.EventArgs.AutocompleteExecutedEventArgs.Context">
+            <summary>
+            The context of the autocomplete.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.EventArgs.AutocompleteExecutedEventArgs.ProviderType">
+            <summary>
+            The type of the provider.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.EventArgs.ContextMenuErrorEventArgs">
+            <summary>
+            Represents arguments for a <see cref="E:DSharpPlus.SlashCommands.SlashCommandsExtension.ContextMenuErrored"/>
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.EventArgs.ContextMenuErrorEventArgs.Context">
+            <summary>
+            The context of the command.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.EventArgs.ContextMenuErrorEventArgs.Exception">
+            <summary>
+            The exception thrown.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.EventArgs.ContextMenuExecutedEventArgs">
+            <summary>
+            Represents arguments for a <see cref="E:DSharpPlus.SlashCommands.SlashCommandsExtension.ContextMenuExecuted"/>
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.EventArgs.ContextMenuExecutedEventArgs.Context">
+            <summary>
+            The context of the command.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.EventArgs.ContextMenuInvokedEventArgs">
+            <summary>
+            Represents arguments for a <see cref="E:DSharpPlus.SlashCommands.SlashCommandsExtension.ContextMenuInvoked"/>
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.EventArgs.ContextMenuInvokedEventArgs.Context">
+            <summary>
+            The context of the command.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.EventArgs.SlashCommandErrorEventArgs">
+            <summary>
+            Represents arguments for a <see cref="E:DSharpPlus.SlashCommands.SlashCommandsExtension.SlashCommandErrored"/> event.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.EventArgs.SlashCommandErrorEventArgs.Context">
+            <summary>
+            The context of the command.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.EventArgs.SlashCommandErrorEventArgs.Exception">
+            <summary>
+            The exception thrown.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.EventArgs.SlashCommandExecutedEventArgs">
+            <summary>
+            Represents the arguments for a <see cref="E:DSharpPlus.SlashCommands.SlashCommandsExtension.SlashCommandExecuted"/> event.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.EventArgs.SlashCommandExecutedEventArgs.Context">
+            <summary>
+            The context of the command.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.EventArgs.SlashCommandInvokedEventArgs">
+            <summary>
+            Represents the arguments for a <see cref="E:DSharpPlus.SlashCommands.SlashCommandsExtension.SlashCommandInvoked"/> event.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.EventArgs.SlashCommandInvokedEventArgs.Context">
+            <summary>
+            The context of the command.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.ExtensionMethods">
+            <summary>
+            Defines various extension methods for slash commands.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.ExtensionMethods.UseSlashCommands(DSharpPlus.DiscordClient,DSharpPlus.SlashCommands.SlashCommandsConfiguration)">
+            <summary>
+            Enables slash commands on this <see cref="T:DSharpPlus.DiscordClient"/>.
+            </summary>
+            <param name="client">Client to enable slash commands for.</param>
+            <param name="config">Configuration to use.</param>
+            <returns>Created <see cref="T:DSharpPlus.SlashCommands.SlashCommandsExtension"/>.</returns>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.ExtensionMethods.GetSlashCommands(DSharpPlus.DiscordClient)">
+            <summary>
+            Gets the slash commands module for this client.
+            </summary>
+            <param name="client">Client to get slash commands for.</param>
+            <returns>The module, or null if not activated.</returns>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.ExtensionMethods.UseSlashCommandsAsync(DSharpPlus.DiscordShardedClient,DSharpPlus.SlashCommands.SlashCommandsConfiguration)">
+            <summary>
+            Enables slash commands on this <see cref="T:DSharpPlus.DiscordShardedClient"/>.
+            </summary>
+            <param name="client">Client to enable slash commands on.</param>
+            <param name="config">Configuration to use.</param>
+            <returns>A dictionary of created <see cref="T:DSharpPlus.SlashCommands.SlashCommandsExtension"/> with the key being the shard id.</returns>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.ExtensionMethods.RegisterCommands``1(System.Collections.Generic.IReadOnlyDictionary{System.Int32,DSharpPlus.SlashCommands.SlashCommandsExtension},System.Nullable{System.UInt64})">
+            <summary>
+            Registers a commands class.
+            </summary>
+            <typeparam name="T">The command class to register.</typeparam>
+            <param name="modules">The modules to register it on.</param>
+            <param name="guildId">The guild id to register it on. If you want global commands, leave it null.</param>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.ExtensionMethods.RegisterCommands(System.Collections.Generic.IReadOnlyDictionary{System.Int32,DSharpPlus.SlashCommands.SlashCommandsExtension},System.Type,System.Nullable{System.UInt64})">
+            <summary>
+            Registers a command class.
+            </summary>
+            <param name="modules">The modules to register it on.</param>
+            <param name="type">The <see cref="T:System.Type"/> of the command class to register.</param>
+            <param name="guildId">The guild id to register it on. If you want global commands, leave it null.</param>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.ExtensionMethods.GetName``1(``0)">
+            <summary>
+            Gets the name from the <see cref="T:DSharpPlus.SlashCommands.ChoiceNameAttribute"/> for this enum value.
+            </summary>
+            <returns>The name.</returns>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.IAutocompleteProvider">
+            <summary>
+            All autocomplete providers must inherit from this interface.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.IAutocompleteProvider.Provider(DSharpPlus.SlashCommands.AutocompleteContext)">
+            <summary>
+            Provides autocomplete choices.
+            </summary>
+            <param name="ctx">The autocomplete context.</param>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.IChoiceProvider">
+            <summary>
+            All choice providers must inherit from this interface.
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.IChoiceProvider.Provider">
+            <summary>
+            Sets the choices for the slash command.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.Localization">
+            <summary>
+            Supported locals for slash command localizations.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.LocaleHelper">
+            <summary>
+            A helper class that provides a list of supported localizations.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.SlashCommands.LocaleHelper.LocaleToStrings">
+            <summary>
+            A dictionary of supported localizations.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.SlashCommandsConfiguration">
+            <summary>
+            A configuration for a <see cref="T:DSharpPlus.SlashCommands.SlashCommandsExtension"/>.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.SlashCommandsConfiguration.Services">
+            <summary>
+            <para>Sets the service provider.</para>
+            <para>Objects in this provider are used when instantiating slash command modules. This allows passing data around without resorting to static members.</para>
+            <para>Defaults to null.</para>
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.SlashCommandsExtension">
+            <summary>
+            A class that handles slash commands for a client.
+            </summary>
+        </member>
+        <member name="P:DSharpPlus.SlashCommands.SlashCommandsExtension.RegisteredCommands">
+            <summary>
+            Gets a list of registered commands. The key is the guild id (null if global).
+            </summary>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.SlashCommandsExtension.Setup(DSharpPlus.DiscordClient)">
+            <summary>
+            Runs setup. DO NOT RUN THIS MANUALLY. DO NOT DO ANYTHING WITH THIS.
+            </summary>
+            <param name="client">The client to setup on.</param>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.SlashCommandsExtension.RegisterCommands``1(System.Nullable{System.UInt64})">
+            <summary>
+            Registers a command class.
+            </summary>
+            <typeparam name="T">The command class to register.</typeparam>
+            <param name="guildId">The guild id to register it on. If you want global commands, leave it null.</param>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.SlashCommandsExtension.RegisterCommands(System.Type,System.Nullable{System.UInt64})">
+            <summary>
+            Registers a command class.
+            </summary>
+            <param name="type">The <see cref="T:System.Type"/> of the command class to register.</param>
+            <param name="guildId">The guild id to register it on. If you want global commands, leave it null.</param>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.SlashCommandsExtension.RegisterCommands(System.Reflection.Assembly,System.Nullable{System.UInt64})">
+            <summary>
+            Registers all command classes from a given assembly.
+            </summary>
+            <param name="assembly">Assembly to register command classes from.</param>
+            <param name="guildId">The guild id to register it on. If you want global commands, leave it null.</param>
+        </member>
+        <member name="M:DSharpPlus.SlashCommands.SlashCommandsExtension.RefreshCommands">
+            <summary>
+            <para>Refreshes your commands, used for refreshing choice providers or applying commands registered after the ready event on the discord client.
+            Should only be run on the slash command extension linked to shard 0 if sharding.</para>
+            <para>Not recommended and should be avoided since it can make slash commands be unresponsive for a while.</para>
+            </summary>
+        </member>
+        <member name="E:DSharpPlus.SlashCommands.SlashCommandsExtension.SlashCommandErrored">
+            <summary>
+            Fires when the execution of a slash command fails.
+            </summary>
+        </member>
+        <member name="E:DSharpPlus.SlashCommands.SlashCommandsExtension.SlashCommandInvoked">
+            <summary>
+            Fired when a slash command has been received and is to be executed
+            </summary>
+        </member>
+        <member name="E:DSharpPlus.SlashCommands.SlashCommandsExtension.SlashCommandExecuted">
+            <summary>
+            Fires when the execution of a slash command is successful.
+            </summary>
+        </member>
+        <member name="E:DSharpPlus.SlashCommands.SlashCommandsExtension.ContextMenuErrored">
+            <summary>
+            Fires when the execution of a context menu fails.
+            </summary>
+        </member>
+        <member name="E:DSharpPlus.SlashCommands.SlashCommandsExtension.ContextMenuInvoked">
+            <summary>
+            Fired when a context menu has been received and is to be executed
+            </summary>
+        </member>
+        <member name="E:DSharpPlus.SlashCommands.SlashCommandsExtension.ContextMenuExecuted">
+            <summary>
+            Fire when the execution of a context menu is successful.
+            </summary>
+        </member>
+        <member name="T:DSharpPlus.SlashCommands.SlashExecutionChecksFailedException">
+            <summary>
+            Thrown when a pre-execution check for a slash command fails.
+            </summary>
+        </member>
+        <member name="F:DSharpPlus.SlashCommands.SlashExecutionChecksFailedException.FailedChecks">
+            <summary>
+            The list of failed checks.
+            </summary>
+        </member>
+    </members>
+</doc>
