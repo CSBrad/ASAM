@@ -1,4 +1,4 @@
-# ASAM: Brads Digital Server Manager for ASA V0.1.2.3
+# ASAM: Brads Digital Server Manager for ASA V0.1.2.6
 
 Welcome to ASAM - your go-to solution for managing your Ark Survival Evolved server with ease!
 
@@ -76,12 +76,11 @@ A Massive Thank You to Radiolotek for your support. It means a lot for the conti
 
 [Discord](https://discord.gg/7GQYecCgtu)
 
-![Screenshot_9](https://github.com/CSBrad/ASAM/assets/57268178/f5998164-b31e-4d5d-90d1-24e195bddd47)
-![Screenshot_8](https://github.com/CSBrad/ASAM/assets/57268178/225b0550-838b-410e-9b36-7e21bb988b40)
-![Screenshot_7](https://github.com/CSBrad/ASAM/assets/57268178/e1dce36b-c0fd-4abe-8370-110d223211e5)
-![Screenshot_6](https://github.com/CSBrad/ASAM/assets/57268178/0447f424-2d0f-450f-9d9e-b72e16efdc63)
-![Screenshot_5](https://github.com/CSBrad/ASAM/assets/57268178/5c5027af-c4c3-4a6b-a1fa-bca3dd19c661)
-![Screenshot_4](https://github.com/CSBrad/ASAM/assets/57268178/57b63b84-427f-48b4-a380-6a118249a696)
-![Screenshot_3](https://github.com/CSBrad/ASAM/assets/57268178/e5d87cc8-0642-492c-a0c0-cabb3c3fa932)
-![Screenshot_2](https://github.com/CSBrad/ASAM/assets/57268178/40ead69e-c604-445f-9216-5c174f9551aa)
-![Screenshot_1](https://github.com/CSBrad/ASAM/assets/57268178/621e19d8-1a15-485d-b3a7-ae0ce908b744)
+![saveRecovery](https://github.com/CSBrad/ASAM/assets/57268178/5da4e362-c9b4-430b-a5dc-bb115c1865fe)
+![mainScreen](https://github.com/CSBrad/ASAM/assets/57268178/de6ec38a-21c5-4937-8b5b-16bcb2222df9)
+![GUS](https://github.com/CSBrad/ASAM/assets/57268178/18ce8077-303f-4b51-bd53-37252c8dcb60)
+![ENVIROMENT](https://github.com/CSBrad/ASAM/assets/57268178/204c6a75-d254-47c8-bd04-e01b0164deb6)
+![discordBot](https://github.com/CSBrad/ASAM/assets/57268178/b744c230-d5df-4d10-9ab8-97d2484d33d0)
+![backups](https://github.com/CSBrad/ASAM/assets/57268178/42d29d42-7ae3-4dab-80a1-00a561920335)
+![autoRestart](https://github.com/CSBrad/ASAM/assets/57268178/31fa255a-71bc-4e66-b053-3916f9c1ba40)
+
