@@ -1,4 +1,4 @@
-# ASAM: Brads Digital Server Manager for ASA V0.1.2.15
+# ASAM: Brads Digital Server Manager for ASA V0.1.2.21
 
 Welcome to ASAM - your go-to solution for managing your Ark Survival Evolved server with ease!
 
