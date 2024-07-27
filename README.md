@@ -1,4 +1,4 @@
-# ASAM: Brads Digital Server Manager for ASA V0.1.2.22
+# ASAM: Brads Digital Server Manager for ASA V0.1.2.24
 
 Welcome to ASAM - your go-to solution for managing your Ark Survival Evolved server with ease!
 
@@ -11,7 +11,7 @@ Please make sure you have the following frameworks:
 .net 4.7.2
 ```
 
-**Step 1.0: Download Required CMD**
+**Step 1.0: Download Required Steam CMD**
 ```
 Find the "Download" button in the ASAM interface.
 Click "Download" to seamlessly install the necessary Command Prompt (CMD).
