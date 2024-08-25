@@ -20,7 +20,7 @@
   </a>
   
   <a href="[https://www.paypal.com/paypalme/BradleyRye](https://github.com/CSBrad/ASAM/releases/tag/v1.1.2.27)" target="_blank">
-    <img alt="Nightly Release" src="https://img.shields.io/badge/Donate-Today-blue">
+    <img alt="Nightly Release" src="https://img.shields.io/badge/Nightly-Release-blue">
   </a>
   
 </p>
