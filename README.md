@@ -19,7 +19,7 @@
     <img alt="Donate Today" src="https://img.shields.io/badge/Donate-Today-blue">
   </a>
   
-  <a href="[https://www.paypal.com/paypalme/BradleyRye](https://github.com/CSBrad/ASAM/releases/tag/v1.1.2.27)" target="_blank">
+  <a href="https://github.com/CSBrad/ASAM/releases/tag/v1.1.2.27" target="_blank">
     <img alt="Nightly Release" src="https://img.shields.io/badge/Nightly-Release-blue">
   </a>
   
