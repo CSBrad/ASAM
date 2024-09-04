@@ -92,8 +92,8 @@ This software uses the following packages:
 *  [RconSharp](https://github.com/stefanodriussi/rconsharp)
 *  [Newtonsoft.Json](https://www.newtonsoft.com/json)
 
-## Honorable Mentions 
-A Massive thank you for supporting the porject:
+## Honourable Mentions 
+A Massive thank you for supporting the project:
 * Radiolotek
 * Donatello
 
