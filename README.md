@@ -30,7 +30,7 @@
   <a href="#installation">Installation</a> •
   <a href="#platforms">Platforms</a> •
   <a href="#how-to-use">How to Use</a> •
-  <a href="#launch-args">Launch Arguments</a> •
+  <a href="#launch-arguments">Launch Arguments</a> •
   <a href="#credits">Credits</a>
 </p>
 
