@@ -48,6 +48,7 @@
 * **Backup Recovery**
 * **Profile Creation** for multiple servers, supporting clustering.
 * **Built-In Config Editor** (GUI and text-based editors available)
+* **ARK ASA API** Requires a manual download of the API, enabled using a checkbox in configuration window 
 * **Drop Editor** (Coming Soon)
 
 ## Installation
@@ -96,6 +97,10 @@ This software uses the following packages:
 A Massive thank you for supporting the project:
 * Radiolotek
 * Donatello
+* Isaboe
+* Echo 11
+* Syd
+* WaterDiet
 
 ## Donations
 This is free to use software. If you'd like to support future developments you can do so [Here](https://www.paypal.com/paypalme/BradleyRye) or [Here](https://github.com/sponsors/CSBrad/)
